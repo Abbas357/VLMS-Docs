@@ -1,0 +1,2199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KP Vehicle Lifecycle Management System – User Manual</title>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link id="urdu-font-link" rel="stylesheet" href=""
+        data-href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap">    
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+    <link rel="stylesheet" href="assets/style.min.css">
+</head>
+
+<body>    
+    <div id="progress-bar"></div>    
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+
+                <div class="hero-badge">
+                    <span class="material-symbols-outlined" style="font-size:.9rem">menu_book</span>
+                    <span class="lang-en">User Manual</span><span class="lang-ur">صارف دستاویز</span>
+                </div>
+                <h1><span class="lang-en" style="text-transform: uppercase; font-size: 130%;">KP Vehicle Lifecycle Management System</span><span class="lang-ur">کے پی وہیکل
+                        لائف سائیکل مینیجمنٹ سسٹم</span></h1>
+                <p><span class="lang-en">A step-by-step guide for department users to manage government vehicles through
+                        the KP e-VLMS portal.</span><span class="lang-ur">محکمانہ صارفین کے لیے KP-eVLMS
+                        پورٹل کے ذریعے سرکاری گاڑیوں کے انتظام کا مرحلہ وار رہنما۔</span></p>
+                <div class="read-time-badge" id="read-time-badge">
+                    <span class="material-symbols-outlined">schedule</span>
+                    <span id="read-time-text">Calculating…</span>
+                </div>
+            </div>
+        </div>
+    </header>    
+    <div class="lang-switcher-bar">
+        <div>
+            <span class="ls-label">&#127760; Language / زبان</span>
+            <button class="lang-btn active" id="lang-btn-en">English</button>
+            <button class="lang-btn" id="lang-btn-ur">اردو</button>
+        </div>
+        <div class="fts-wrap">
+            <input type="text" id="fts-input" placeholder="Search guide… / تلاش کریں…" autocomplete="off">
+            <span id="fts-count"></span>
+        </div>
+        <span class="bar-sep"></span>
+        <div>
+            <button class="lang-btn active" id="compact-btn" title="Compact view (less spacing)">Compact</button>
+            <button class="lang-btn" id="normal-btn" title="Normal view">Normal</button>
+        </div>
+        <button class="icon-btn" id="dark-btn" title="Toggle dark mode">
+            <span class="material-symbols-outlined" id="dark-icon">dark_mode</span>
+        </button>
+    </div>    
+    <div class="page-wrap">
+
+        
+        <button id="nav-toggle" aria-label="Toggle navigation">
+            <span class="material-symbols-outlined">menu</span>
+            <span class="lang-en">Menu</span><span class="lang-ur">مینو</span>
+        </button>
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-head">
+                    <span class="material-symbols-outlined">toc</span> <span class="lang-en">Table of
+                        Contents</span><span class="lang-ur">فہرست مضامین</span>
+                    <button id="nav-close" aria-label="Close menu" style="margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;display:none;padding:.2rem"><span class="material-symbols-outlined" style="font-size:1.3rem">close</span></button>
+                </div>
+                <div class="sidebar-search">
+                    <input type="text" id="navSearch" placeholder="Search sections…" oninput="filterNav(this.value)">
+                </div>
+                <ul class="nav-list" id="navList">
+                    <li><a href="#sec-login" class="active">
+                            <span class="material-symbols-outlined ic-text" style="color:#1d4ed8">login</span>
+                            <span class="nav-num">1</span> <span class="lang-en">Login</span><span
+                                class="lang-ur">لاگ ان یو آر ایل</span>
+                        </a></li>
+                    <li><a href="#sec-home">
+                            <span class="material-symbols-outlined" style="color:#4338ca">home</span>
+                            <span class="nav-num">2</span> <span class="lang-en">Home Screen</span><span
+                                class="lang-ur">ہوم اسکرین</span>
+                        </a></li>
+                    <li><a href="#sec-dashboard">
+                            <span class="material-symbols-outlined" style="color:#7c3aed">dashboard</span>
+                            <span class="nav-num">3</span> <span class="lang-en">Dashboard</span><span
+                                class="lang-ur">ڈیش بورڈ</span>
+                        </a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="#sec-procurement">
+                            <span class="material-symbols-outlined" style="color:#15803d">shopping_cart</span>
+                            <span class="nav-num">3.1</span> <span class="lang-en">Procurement</span><span
+                                class="lang-ur">خریداری</span>
+                        </a></li>
+                    <li><a href="#sec-employee">
+                            <span class="material-symbols-outlined" style="color:#0f766e">person_add</span>
+                            <span class="nav-num">3.2</span> <span class="lang-en">Add Employee</span><span
+                                class="lang-ur">ملازم شامل کریں</span>
+                        </a></li>
+                    <li><a href="#sec-vehicle">
+                            <span class="material-symbols-outlined" style="color:#1d4ed8">directions_car</span>
+                            <span class="nav-num">3.3</span> <span class="lang-en">Add Vehicle</span><span
+                                class="lang-ur">گاڑی شامل کریں</span>
+                        </a></li>
+                    <li><a href="#sec-allotment">
+                            <span class="material-symbols-outlined" style="color:#c2410c">assignment_ind</span>
+                            <span class="nav-num">3.4</span> <span class="lang-en">Allot Vehicle</span><span
+                                class="lang-ur">گاڑی الاٹ کریں</span>
+                        </a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="#sec-transfer">
+                            <span class="material-symbols-outlined" style="color:#4338ca">swap_horiz</span>
+                            <span class="nav-num">3.5</span> <span class="lang-en">Transfer Vehicle</span><span
+                                class="lang-ur">گاڑی منتقل کریں</span>
+                        </a></li>
+                    <li><a href="#sec-inspection">
+                            <span class="material-symbols-outlined" style="color:#0e7490">fact_check</span>
+                            <span class="nav-num">3.6</span> <span class="lang-en">Inspection</span><span
+                                class="lang-ur">معائنہ</span>
+                        </a></li>
+                    <li><a href="#sec-repair">
+                            <span class="material-symbols-outlined" style="color:#b45309">build</span>
+                            <span class="nav-num">3.7</span> <span class="lang-en">Repair / Maintenance</span><span
+                                class="lang-ur">مرمت / دیکھ بھال</span>
+                        </a></li>
+                    <li><a href="#sec-condemn">
+                            <span class="material-symbols-outlined" style="color:#b91c1c">gavel</span>
+                            <span class="nav-num">3.8</span> <span class="lang-en">Condemn / Auction</span><span
+                                class="lang-ur">ردّ / نیلامی</span>
+                        </a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="#sec-usage">
+                            <span class="material-symbols-outlined" style="color:#15803d">history</span>
+                            <span class="nav-num">3.9</span> <span class="lang-en">Usage Logs</span><span
+                                class="lang-ur">استعمال لاگ</span>
+                        </a></li>
+                    <li><a href="#sec-reports">
+                            <span class="material-symbols-outlined" style="color:#7c3aed">assessment</span>
+                            <span class="nav-num">3.10</span> <span class="lang-en">Reports &amp; Audit</span><span
+                                class="lang-ur">رپورٹس اور آڈٹ</span>
+                        </a></li>
+                    <li><a href="#sec-audit">
+                            <span class="material-symbols-outlined" style="color:#1a3c6e">security</span>
+                            <span class="nav-num">3.11</span> <span class="lang-en">Comprehensive Audit</span><span
+                                class="lang-ur">جامع آڈٹ</span>
+                        </a></li>
+                    <li><a href="#sec-full-audit">
+                            <span class="material-symbols-outlined" style="color:#1d4ed8">analytics</span>
+                            <span class="nav-num">3.12</span> <span class="lang-en">Full Audit Report</span><span
+                                class="lang-ur">مکمل آڈٹ رپورٹ</span>
+                        </a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="#sec-accidents">
+                            <span class="material-symbols-outlined" style="color:#b91c1c">car_crash</span>
+                            <span class="nav-num">3.13</span> <span class="lang-en">Accident Vehicles</span><span
+                                class="lang-ur">حادثہ گاڑیاں</span>
+                        </a></li>
+                    <li><a href="#sec-theft">
+                            <span class="material-symbols-outlined" style="color:#be123c">policy</span>
+                            <span class="nav-num">3.14</span> <span class="lang-en">Stolen / Theft</span><span
+                                class="lang-ur">چوری / غائب</span>
+                        </a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="#sec-faq">
+                            <span class="material-symbols-outlined" style="color:#64748b">help</span>
+                            <span class="nav-num">?</span> <span class="lang-en">FAQs</span><span class="lang-ur">اکثر
+                                سوالات</span>
+                        </a></li>
+                </ul>
+            </div>
+        </aside>
+
+        
+        <main class="content">
+
+            
+            <div class="content-logo screenshot">
+                <img src="assets/images/image001.png" alt="KP VLMS Logo" onerror="this.style.display='none'">
+            </div>
+
+            <div class="section-card" id="sec-login">
+                <div class="section-head">
+                    <div class="section-icon ic-blue">
+                        <span class="material-symbols-outlined">login</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">Step 1: Login URL</span><span
+                                class="lang-ur">مرحلہ 1: لاگ ان یو آر ایل</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Access the KP e-VLMS web portal</span><span
+                                class="lang-ur">کے پی ای-وی ایل ایم ایس ویب پورٹل تک رسائی</span></p>
+                    </div>
+                    <span class="section-num">1</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">The web portal can be accessed from the following URL by
+                            Departments, Attached Formations, Authorities, and Autonomous Bodies. Username and password
+                            may be obtained from <strong>KPITB</strong>.</span><span class="lang-ur">یہ ویب پورٹل
+                            محکمات، منسلک ادارے، حکام اور خودمختار اداروں کے لیے مندرجہ ذیل یو آر ایل سے قابل رسائی ہے۔
+                            صارف نام اور پاس ورڈ <strong>KPITB</strong> سے حاصل کیے جا سکتے ہیں۔</span></p>
+
+                    <div class="url-box">
+                        <span class="material-symbols-outlined">link</span>
+                        <span class="lang-en">Portal URL:</span><span class="lang-ur">پورٹل یو آر ایل:</span> <a
+                            href="https://egov.kp.gov.pk/login" target="_blank">https://egov.kp.gov.pk/login</a>
+                    </div>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image002.png" alt="Login Screen"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1: Login Screen</span></div>'">
+                    </div>
+                    <p class="fig-caption">Login Screen</p>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-home">
+                <div class="section-head">
+                    <div class="section-icon ic-indigo">
+                        <span class="material-symbols-outlined">home</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">Step 2: Home Screen</span><span class="lang-ur">مرحلہ #2: ہوم اسکرین</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Navigate to VLMS from the portal
+                                home</span><span class="lang-ur">پورٹل ہوم سے وی ایل ایم ایس میں جائیں</span></p>
+                    </div>
+                    <span class="section-num">2</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">After logging in, select <strong>VLMS</strong> from the Home
+                            Screen to enter the Vehicle Lifecycle Management System.</span><span class="lang-ur">لاگ ان
+                            کے بعد، وہیکل لائف سائیکل مینیجمنٹ سسٹم میں داخل ہونے کے لیے ہوم اسکرین سے
+                            <strong>VLMS</strong> منتخب کریں۔</span></p>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image003.png" alt="Home Screen"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.2: Home Screen</span></div>'">
+                    </div>
+                    <p class="fig-caption">Home Screen</p>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-dashboard">
+                <div class="section-head">
+                    <div class="section-icon ic-purple">
+                        <span class="material-symbols-outlined">dashboard</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">Step 3: Main Dashboard</span><span class="lang-ur">مرحلہ #3: ڈیش بورڈ</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Fleet overview and quick action
+                                menu</span><span class="lang-ur">بیڑے کا جائزہ اور فوری عمل مینو</span></p>
+                    </div>
+                    <span class="section-num">3</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">The <strong>KP Vehicle Lifecycle Management System (KP VLMS)
+                                Dashboard</strong> gives users a quick summary of fleet status - functional vs.
+                            non-functional vehicles, allotted/unallotted, and pool vehicles. The left-hand side quick
+                            action menu provides fast access to:</span><span class="lang-ur"><strong>کے پی وی ایل ایم
+                                ایس ڈیش بورڈ</strong> صارفین کو بیڑے کی حالت کا فوری خلاصہ فراہم کرتا ہے - فعال بمقابلہ
+                            غیر فعال گاڑیاں، الاٹ/غیر الاٹ، اور پول گاڑیاں۔ بائیں جانب فوری عمل مینو درج ذیل تک فوری
+                            رسائی فراہم کرتا ہے:</span></p>
+
+                    <div class="qa-grid">
+                        <div class="qa-item"><span class="material-symbols-outlined">shopping_cart</span> <span
+                                class="lang-en">Procurement</span><span class="lang-ur">خریداری</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">person_add</span> <span
+                                class="lang-en">Add Employee</span><span class="lang-ur">ملازم شامل کریں</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">directions_car</span> <span
+                                class="lang-en">Add Vehicle</span><span class="lang-ur">گاڑی شامل کریں</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">assignment_ind</span> <span
+                                class="lang-en">Allotment</span><span class="lang-ur">الاٹمنٹ</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">swap_horiz</span> <span
+                                class="lang-en">Transfer</span><span class="lang-ur">منتقلی</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">fact_check</span> <span
+                                class="lang-en">Inspection</span><span class="lang-ur">معائنہ</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">build</span> <span
+                                class="lang-en">Repair</span><span class="lang-ur">مرمت</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">gavel</span> <span
+                                class="lang-en">Auction</span><span class="lang-ur">نیلامی</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">history</span> <span
+                                class="lang-en">Usage Logs</span><span class="lang-ur">استعمال لاگ</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">car_crash</span> <span
+                                class="lang-en">Accidents</span><span class="lang-ur">حادثات</span></div>
+                        <div class="qa-item"><span class="material-symbols-outlined">policy</span> <span
+                                class="lang-en">Stolen/Theft</span><span class="lang-ur">چوری</span></div>
+                    </div>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image004.png" alt="Main Dashboard"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.3: Main Dashboard</span></div>'">
+                    </div>
+                    <p class="fig-caption">Main Dashboard</p>
+
+                    <p class="desc" style="margin-top:.75rem"><span class="lang-en">Below the quick action menu,
+                            department users can navigate through analytics and statistics - POL consumption by
+                            date/year/month, procurement requests, fuel overuse trends, entitled employees registered in
+                            KP e-VLMS, and the latest vehicle history (repair, allotment, etc.).</span><span
+                            class="lang-ur">فوری عمل مینو کے نیچے، محکمانہ صارفین تجزیات اور اعداد و شمار دیکھ سکتے ہیں
+                            - تاریخ/سال/مہینے کے حساب سے POL استعمال، خریداری کی درخواستیں، ایندھن کی زیادتی کے رجحانات،
+                            رجسٹرڈ ملازمین اور گاڑیوں کی تازہ ترین تاریخ (مرمت، الاٹمنٹ وغیرہ)۔</span></p>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image005.png" alt="Lower Dashboard"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.4: Lower Dashboard</span></div>'">
+                    </div>
+                    <p class="fig-caption">Lower half of the Main Dashboard</p>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-procurement">
+                <div class="section-head">
+                    <div class="section-icon ic-green">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.1: Procurement</span><span
+                                class="lang-ur">3.1: خریداری</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">New vehicle purchase and procurement
+                                management</span><span class="lang-ur">نئی گاڑی کی خریداری اور انتظام</span></p>
+                    </div>
+                    <span class="section-num">3.1</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">If your department intends to procure a new vehicle, the
+                            <strong>New Procurement</strong> option is available. Before adding a procurement entry,
+                            ensure your department has secured <strong>Cabinet Approval</strong>, <strong>Transport
+                                 Committee Report (TCR) Approval</strong>, and received the invoice.</span><span
+                            class="lang-ur">اگر آپ کا محکمہ نئی گاڑی خریدنا چاہتا ہے تو <strong>New Procurement</strong>
+                            کا آپشن دستیاب ہے۔ اندراج سے پہلے یقینی بنائیں کہ <strong>کابینہ کی منظوری</strong>،
+                            <strong>ٹرانسپورٹ رپورٹنگ کمیٹی (TCR) کی منظوری</strong> اور انوائس موجود ہو۔</span></p>
+
+                    <div class="sub-section">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#15803d;">directions_car</span>
+                            <span class="lang-en">3.1.1 Vehicle Purchase</span><span class="lang-ur">3.1.1: گاڑی کی
+                                خریداری</span>
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en">To create a new procurement entry, click <b>+ New
+                                                Purchase</b>.</span><span class="lang-ur">نئی خریداری کا اندراج بنانے کے
+                                            لیے <b>+ New Purchase</b> پر کلک کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Fill in the request details:</b> Enter the request
+                                            date, vehicle type, brand, model, quantity, estimated cost, funding source (Regular Budget, ADP or Foreign Funded Project),
+                                            procurement method (Open Tender or otherwise), cabinet approval status (Yes / No), and
+                                            authorized dealer details.</span><span class="lang-ur"><b>درخواست کی تفصیلات بھریں:</b>
+                                            درخواست کی تاریخ، گاڑی کی قسم، برانڈ، ماڈل، تعداد، تخمینی لاگت، مالی ذریعہ，
+                                            خریداری کا طریقہ، کابینہ منظوری کی حالت اور ڈیلر کی معلومات درج
+                                            کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Provide justification and specifications:</b>
+                                            Describe why the vehicle is needed in the Justification field and add any
+                                            technical specifications if required.</span><span class="lang-ur"><b>جواز
+                                                اور وضاحتیں فراہم کریں:</b> Justification کے خانے میں گاڑی کی ضرورت کی
+                                            وجہ بیان کریں اور اگر ضروری ہو تو تکنیکی وضاحتیں شامل کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">4</span>
+                                    <span><span class="lang-en"><b>Attach supporting documents and submit:</b> Upload
+                                            the invoice, transport committee minutes, and cabinet approval minutes to complete the procurement request, then
+                                            click <b>Submit Request</b>.</span><span class="lang-ur"><b>معاون دستاویزات
+                                                منسلک کریں اور جمع کریں:</b> انوائس، ٹرانسپورٹ کمیٹی کی کارروائی اور
+                                            کابینہ منظوری کی کارروائی اپ لوڈ کریں، پھر <b>Submit Request</b> پر کلک
+                                            کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image006.png" alt="Procurement List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1.1: List of Procurements</span></div>'">
+                            </div>
+                            <p class="fig-caption">List of Procurements</p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image007.png" alt="Add Fresh Procurement"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1.2: Add Fresh Procurement</span></div>'">
+                            </div>
+                            <p class="fig-caption">Add Fresh Procurement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-employee">
+                <div class="section-head">
+                    <div class="section-icon ic-teal">
+                        <span class="material-symbols-outlined">person_add</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.2: Add Employee / Officers</span><span
+                                class="lang-ur">3.2: ملازم / افسران شامل کریں</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Register Government Officers (BS 17–22) in
+                                VLMS</span><span class="lang-ur">وی ایل ایم ایس میں سرکاری افسران (گریڈ 17–22) رجسٹر
+                                کریں</span></p>
+                    </div>
+                    <span class="section-num">3.2</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">Before adding available vehicles, it is important to add all
+                            employees/officers' details to whom vehicles have been allotted. The
+                            <strong>employee</strong> term in VLMS refers to a Government Officer (BS
+                            17–22) / Cabinet Members including Advisors and Entitled Public Servants.</span><span class="lang-ur">گاڑیاں شامل کرنے سے پہلے، ان تمام ملازمین/افسران کی
+                            تفصیلات شامل کرنا ضروری ہے جنہیں گاڑیاں الاٹ کی گئی ہیں۔ وی ایل ایم ایس میں
+                            <strong>ملازم</strong> سے مراد سرکاری افسر (گریڈ 17–22) ہے۔</span></p>
+                    <p class="desc"><span class="lang-en">The <strong>Add Employee menu button</strong> is used to view,
+                            search, add, and manage employee records in the VLMS module.</span><span
+                            class="lang-ur"><strong>Add Employee مینو بٹن</strong> وی ایل ایم ایس ماڈیول میں ملازمین کے
+                            ریکارڈ دیکھنے، تلاش کرنے، شامل کرنے اور انتظام کرنے کے لیے استعمال ہوتا ہے۔</span></p>
+
+                    <div class="sub-section">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined" style="color:#0f766e;">badge</span>
+                            <span class="lang-en">3.2.1 Add Employee / Officer</span><span class="lang-ur">3.2.1 –
+                                ملازم / افسر شامل کریں</span>
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en">Click <b>VLMS Quick Actions</b> from the left menu, then
+                                            click <b>Add Employee</b>.</span><span class="lang-ur">بائیں مینو سے <b>VLMS
+                                                Quick Actions</b> پر کلک کریں، پھر <b>Add Employee</b> پر کلک
+                                            کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Search or enter employee identity:</b> Use the
+                                            CNIC/Personnel No search bar to search for an existing record of already entered employees, or fill in the
+                                            employee's name, CNIC, personnel number, contact details, and
+                                            email and other details for entering a new employee.</span><span class="lang-ur"><b>ملازم کی شناخت تلاش یا درج کریں:</b>
+                                            CNIC/پرسنل نمبر سے موجودہ ریکارڈ تلاش کریں، یا ملازم کا نام، CNIC، پرسنل
+                                            نمبر، رابطہ اور ای میل بھریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Set department and grade details:</b> Select the
+                                            section/wing, enter the grade (BS), and choose the fuel entitlement
+                                            designation and vehicle entitlement based on designation, grade, or
+                                            duty.</span><span class="lang-ur"><b>محکمہ اور گریڈ کی تفصیلات درج کریں:</b>
+                                            سیکشن/ونگ منتخب کریں، گریڈ (BS) درج کریں، اور عہدے، گریڈ یا ڈیوٹی کے مطابق
+                                            ایندھن اور گاڑی کا استحقاق منتخب کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">4</span>
+                                    <span><span class="lang-en"><b>Confirm entitlements and save:</b>After entry to above fields, the POL ceiling, engine capacity, and entitlement status will automatically be displayed.Verify the POL
+                                            ceiling, engine capacity, and entitlement status, then click <b>Save</b> to
+                                            add the employee.</span><span class="lang-ur"><b>استحقاق کی تصدیق کریں اور
+                                                محفوظ کریں:</b> POL حد، انجن کی گنجائش اور استحقاق کی حالت کی تصدیق
+                                            کریں، پھر <b>Save</b> پر کلک کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image008.png" alt="Employee List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>List of Employees</span></div>'">
+                            </div>
+                            <p class="fig-caption">List of Employees</p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image009.png" alt="Adding Employee"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Adding New Employee</span></div>'">
+                            </div>
+                            <p class="fig-caption">Adding New Employee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-vehicle">
+                <div class="section-head">
+                    <div class="section-icon ic-blue">
+                        <span class="material-symbols-outlined">directions_car</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.3: Add Vehicle</span><span class="lang-ur">3.3: گاڑی شامل کریں</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Register and manage vehicle records in the
+                                system</span><span class="lang-ur">سسٹم میں گاڑیوں کے ریکارڈ رجسٹر اور انتظام
+                                کریں</span></p>
+                    </div>
+                    <span class="section-num">3.3</span>
+                </div>
+                <div class="section-body">
+
+                    <div class="sub-section">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined" style="color:#1d4ed8;">list_alt</span>
+                            <span class="lang-en">3.3.1 Vehicle Listing and Adding New Vehicles</span><span
+                                class="lang-ur">3.3.1 گاڑیوں کی فہرست اور نئی گاڑیاں شامل کرنا</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">The Vehicle List screen is used to view / search and manage
+                                    vehicle records. Users can filter vehicles by <strong>Department</strong>,
+                                    <strong>Status</strong>, <strong>Employee</strong>, <strong>Registration
+                                        Number</strong>, <strong>Chassis Number</strong>, and <strong>Search
+                                        keyword</strong>. After setting filters, click <strong>Apply</strong> to view
+                                    results or reset.</span><span class="lang-ur">گاڑیوں کی فہرست کی اسکرین ریکارڈ
+                                    دیکھنے اور انتظام کرنے کے لیے ہے۔ صارفین <strong>محکمہ</strong>،
+                                    <strong>حالت</strong>، <strong>ملازم</strong>، <strong>رجسٹریشن نمبر</strong>،
+                                    <strong>چیسس نمبر</strong> اور <strong>کلیدی لفظ</strong> سے فلٹر کر سکتے ہیں۔ فلٹر
+                                    لگانے کے بعد <strong>Apply</strong> پر کلک کریں۔</span></p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image010.png" alt="Vehicle List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 3.1.1: List of Vehicles</span></div>'">
+                            </div>
+                            <p class="fig-caption">List of Vehicles</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#1d4ed8;">add_circle</span>
+                            <span class="lang-en">3.3.2 Add Vehicle</span><span class="lang-ur">3.3.2: گاڑی شامل
+                                کریں</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">Click the <strong>+ Add Vehicle</strong> button at the
+                                    top right corner of the screen to add a new vehicle.</span><span class="lang-ur">نئی
+                                    گاڑی شامل کرنے کے لیے اسکرین کے اوپر دائیں کونے میں <strong>+ Add Vehicle</strong>
+                                    بٹن پر کلک کریں۔</span></p>
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en"><b>Enter vehicle identity details:</b> Select the allotment type. Kindly fill the required fields like chassis
+                                            number, registration number, registered district, brand, model, model year,
+                                            manufacture year, source of procurement, and purchase/registration
+                                            dates.</span><span class="lang-ur"><b>گاڑی کی شناختی تفصیلات درج کریں:</b>
+                                            چیسس نمبر، رجسٹریشن نمبر، رجسٹرڈ ضلع، برانڈ، ماڈل، ماڈل سال، سال ساخت， 
+                                            خریداری کا ذریعہ اور خریداری/رجسٹریشن کی تاریخیں درج کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Add physical and departmental details:</b> Specify
+                                            body type, engine size (CC as per Registration Book), custodian name (Name of Department or Officer), authorized dealer,
+                                            and confirm the department/organization.</span><span
+                                            class="lang-ur"><b>جسمانی اور محکمانہ تفصیلات شامل کریں:</b> باڈی کی قسم，
+                                            انجن کا حجم، الاٹمنٹ کی قسم، نگران کا نام، مجاز ڈیلر اور محکمہ/ادارہ کی
+                                            تصدیق کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Assign the vehicle:</b> Under Vehicle Allotment,
+                                            select the employee, set the vehicle allotment date, and choose the vehicle status
+                                            to complete the record.</span><span class="lang-ur"><b>گاڑی تفویض کریں:</b>
+                                            Vehicle Allotment کے تحت ملازم منتخب کریں، الاٹمنٹ کی تاریخ مقرر کریں اور
+                                            گاڑی کی حالت منتخب کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image011.png" alt="Add Vehicle"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 3.1.2: Adding Vehicle Details</span></div>'">
+                            </div>
+                            <p class="fig-caption">Adding Vehicle Details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-allotment">
+                <div class="section-head">
+                    <div class="section-icon ic-orange">
+                        <span class="material-symbols-outlined">assignment_ind</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.4: Allot Vehicle</span><span
+                                class="lang-ur">3.4: گاڑی الاٹ کریں</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Assign vehicles to authorized
+                                employees</span><span class="lang-ur">مجاز ملازمین کو گاڑیاں تفویض کریں</span></p>
+                    </div>
+                    <span class="section-num">3.4</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">The <strong>Allot Vehicle menu button</strong> is used to
+                            search, view, add, and manage vehicle allotment records.</span><span class="lang-ur"><strong>Allot
+                                Vehicle مینو بٹن</strong> گاڑیوں کی الاٹمنٹ ریکارڈ دیکھنے، شامل کرنے اور انتظام کرنے کے
+                            لیے استعمال ہوتا ہے۔</span></p>
+
+                    <div class="sub-section">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#c2410c;">format_list_bulleted</span>
+                            <span class="lang-en">3.4.1 Allotment List</span><span class="lang-ur">3.4.1: الاٹمنٹ کی
+                                فہرست</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">The Allotment field shows: <strong>Employee</strong>,
+                                    <strong>Registration Number</strong>, <strong>District</strong>, <strong>Allotment
+                                        Date</strong>, <strong>Return Date</strong>, <strong>Vehicle Image</strong>,
+                                    <strong>Authorization Letter</strong>, <strong>Transport Committee</strong>, and
+                                    <strong>Status</strong> which can be searched by the Secretary / DG / PD / Head of Department for checking the status of vehicles in the department.</span><span class="lang-ur">نئی الاٹمنٹ بنانے کے لیے اوپر
+                                    دائیں <strong>Add Allotment</strong> پر کلک کریں۔ جدول میں: <strong>ملازم</strong>，
+                                    <strong>رجسٹریشن نمبر</strong>، <strong>ضلع</strong>، <strong>الاٹمنٹ
+                                        تاریخ</strong>، <strong>واپسی تاریخ</strong>، <strong>گاڑی کی تصویر</strong>،
+                                    <strong>اجازت نامہ</strong>، <strong>ٹرانسپورٹ کمیٹی</strong> اور
+                                    <strong>حالت</strong> شامل ہیں۔</span></p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image012.png" alt="Allotment List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 4.1.1: Allotment List</span></div>'">
+                            </div>
+                            <p class="fig-caption">Allotment List</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined" style="color:#c2410c;">add_task</span>
+                            <span class="lang-en">3.4.2 Add Allotment</span><span class="lang-ur">3.4.2: الاٹمنٹ شامل
+                                کریں</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">To create a new allotment, click Add Allotment at the top right. The Vehicle Allotment request can also be sent by the
+                                    Allottee from the <strong>Smart District Workspace</strong> /dastak  mobile app.
+                                    Alternatively, departments can manage vehicle allotment directly via this
+                                    screen.</span><span class="lang-ur">الاٹمنٹ کی درخواست الاٹی <strong>Smart District
+                                        Workspace</strong> موبائل ایپ سے بھی بھیج سکتا ہے۔ متبادل طور پر، محکمہ اس
+                                    اسکرین سے براہ راست انتظام کر سکتا ہے۔</span></p>
+
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en"><b>Select the vehicle and employee:</b> Choose the
+                                            vehicle ID and the employee name/ID, along with the department, allotment
+                                            date, and vehicle status.</span><span class="lang-ur"><b>گاڑی اور ملازم
+                                                منتخب کریں:</b> گاڑی کی ID اور ملازم کا نام/ID منتخب کریں، ساتھ محکمہ،
+                                            الاٹمنٹ تاریخ اور گاڑی کی حالت درج کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Record mileage and upload supporting files:</b> Enter
+                                            the mileage at the time of handover, then upload the vehicle image and the
+                                            authentication letter/entitlement notification.</span><span
+                                            class="lang-ur"><b>مائلیج ریکارڈ کریں اور فائلیں اپ لوڈ کریں:</b> حوالگی کے
+                                            وقت مائلیج درج کریں، پھر گاڑی کی تصویر اور اجازت نامہ/استحقاق نوٹیفکیشن اپ
+                                            لوڈ کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Attach the TCR file and save:</b> Upload the
+                                            Transport Committee Report (TCR) file (jpg, jpeg, png, or pdf - max
+                                            10MB), then click <b>Save</b> to complete the allotment.</span><span
+                                            class="lang-ur"><b>TCR فائل منسلک کریں اور محفوظ کریں:</b> ٹرانسپورٹ رپورٹنگ
+                                            کمیٹی (TCR) فائل اپ لوڈ کریں (jpg، jpeg، png یا pdf - زیادہ سے زیادہ 10MB)،
+                                            پھر <b>Save</b> پر کلک کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image013.png" alt="Create Allotment"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 4.1.2: Create Allotment</span></div>'">
+                            </div>
+                            <p class="fig-caption">Create Allotment Form</p>
+                        </div>
+                    </div>
+
+                    <div class="note info" style="margin-top:1rem">
+                        <span class="material-symbols-outlined">smartphone</span>
+                        <div>
+                            <span class="lang-en"><strong>Important Allottee Controls:</strong> If an allottee wants
+                                to log their usage or forward a request for transfer/allotment, they can use the mobile
+                                app <strong>"Smart District Workspace"</strong> (available on Play Store). Username and
+                                password will be provided by the concerned department.</span><span
+                                class="lang-ur"><strong>اہم – الاٹی کنٹرولز:</strong> اگر الاٹی استعمال لاگ کرنا یا
+                                منتقلی/الاٹمنٹ کی درخواست بھیجنا چاہتا ہے، تو وہ موبائل ایپ <strong>"Smart District
+                                    Workspace"</strong> (پلے اسٹور پر دستیاب) استعمال کر سکتا ہے۔ صارف نام اور پاس ورڈ
+                                متعلقہ محکمہ فراہم کرے گا۔</span>
+                            <div style="margin-top:.4rem">
+                                <a href="https://play.google.com/store/apps/details?id=com.kpitb.smart.district.workspace"
+                                    target="_blank" style="color:#075985;font-weight:600;font-size:.8rem">
+                                    <span class="lang-en">↗ Download on Google Play Store</span><span class="lang-ur">↗
+                                        گوگل پلے اسٹور سے ڈاؤن لوڈ کریں</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phone-row" style="margin-top:1rem">
+                        <div>
+                            <div class="screenshot">
+                                <img src="assets/images/image014.png" alt="Play Store"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\' style=\'min-height:120px\'><span class=\'material-symbols-outlined\'>android</span><span>Fig 4.1.3: KP Smart District Workspace on Play Store</span></div>'">
+                            </div>
+                            <p class="fig-caption">KP Smart District Workspace on Play Store</p>
+                        </div>
+                    </div>
+                    <div class="phone-row">
+                        <div class="phone-frame">
+                            <img src="assets/images/image015.png" alt="App Screen 1"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="phone-frame">
+                            <img src="assets/images/image016.png" alt="App Screen 2"
+                                onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <p class="fig-caption">Smart District Workspace Mobile App</p>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-transfer">
+                <div class="section-head">
+                    <div class="section-icon ic-indigo">
+                        <span class="material-symbols-outlined">swap_horiz</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.5: Transfer Vehicle</span><span
+                                class="lang-ur">3.5: گاڑی منتقل کریں</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Transfer vehicles within or between
+                                departments</span><span class="lang-ur">محکموں کے اندر یا درمیان گاڑیاں منتقل
+                                کریں</span></p>
+                    </div>
+                    <span class="section-num">3.5</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">The Vehicle Transfer request can be sent by the Allottee from
+                            the Smart District Workspace / Dastak mobile app, or managed directly by the department via this
+                            screen.</span><span class="lang-ur">گاڑی منتقلی کی درخواست الاٹی Smart District Workspace
+                            موبائل ایپ سے بھیج سکتا ہے، یا محکمہ اس اسکرین سے براہ راست انتظام کر سکتا ہے۔</span></p>
+
+                    <ul class="steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <span><span class="lang-en">Go to <b>VLMS Quick Actions</b> in the left menu and click
+                                    <b>Transfer Vehicle</b>. The table displays: <b>Vehicle</b>, <b>District</b>,
+                                    <b>From</b>, <b>To</b>, <b>Transfer Date</b>, <b>Type</b>, and <b>Request
+                                        Status</b>.</span><span class="lang-ur">بائیں مینو میں <b>VLMS Quick Actions</b>
+                                    پر جائیں اور <b>Transfer Vehicle</b> پر کلک کریں۔ جدول میں: <b>گاڑی</b>، <b>ضلع</b>،
+                                    <b>از</b>، <b>تا</b>، <b>منتقلی تاریخ</b>، <b>قسم</b> اور <b>درخواست کی حالت</b>
+                                    دکھائی جاتی ہے۔</span></span>
+                        </li>
+                        <li>
+                            <span class="step-num">2</span>
+                            <span><span class="lang-en">To create a new transfer, click <b>New Transfer</b>. To manage a
+                                    transfer/return request, click <b>Transfer/Return Request</b>.</span><span
+                                    class="lang-ur">نئی منتقلی بنانے کے لیے <b>New Transfer</b> پر کلک کریں۔
+                                    منتقلی/واپسی کی درخواست کے انتظام کے لیے <b>Transfer/Return Request</b> پر کلک
+                                    کریں۔</span></span>
+                        </li>
+                    </ul>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image017.png" alt="Transfer List"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 5.1: Vehicle Transfer List</span></div>'">
+                    </div>
+                    <p class="fig-caption">hicle Transfer List</p>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#4338ca;">edit_note</span>
+                            <span class="lang-en">3.5.1 Transfer Vehicle Form</span><span class="lang-ur">3.5.1: گاڑی
+                                منتقلی فارم</span>
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en"><b>Select the vehicle:</b> Choose the vehicle from the
+                                            dropdown; brand, model, and vehicle status will auto-populate.</span><span
+                                            class="lang-ur"><b>گاڑی منتخب کریں:</b> ڈراپ ڈاؤن سے گاڑی منتخب کریں؛ برانڈ،
+                                            ماڈل اور گاڑی کی حالت خودکار طور پر آ جائیں گے۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Choose the transfer option:</b> Select either
+                                            <b>Transfer Within Current Department</b> or <b>Transfer to Other
+                                                Department</b>, and confirm the current holder in the Transfer From
+                                            field.</span><span class="lang-ur"><b>منتقلی کا آپشن منتخب کریں:</b>
+                                            <b>موجودہ محکمے کے اندر منتقلی</b> یا <b>دوسرے محکمے کو منتقلی</b> منتخب
+                                            کریں اور Transfer From خانے میں موجودہ الاٹی کی تصدیق کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Enter transfer details and submit:</b> Input current
+                                            mileage, confirm or adjust the date of transfer, then proceed to complete
+                                            the transfer.</span><span class="lang-ur"><b>منتقلی کی تفصیلات درج کریں اور
+                                                مکمل کریں:</b> موجودہ مائلیج درج کریں، منتقلی کی تاریخ کی تصدیق یا
+                                            تبدیلی کریں، پھر منتقلی مکمل کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image018.png" alt="Transfer Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 5.2: Transfer Vehicle Form</span></div>'">
+                            </div>
+                            <p class="fig-caption">ansfer Vehicle Form</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-inspection">
+                <div class="section-head">
+                    <div class="section-icon ic-cyan">
+                        <span class="material-symbols-outlined">fact_check</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.6: Inspection</span><span class="lang-ur">3.6: معائنہ</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Conduct and record vehicle compliance
+                                inspections</span><span class="lang-ur">گاڑیوں کا تعمیل معائنہ کریں اور ریکارڈ
+                                کریں</span></p>
+                    </div>
+                    <span class="section-num">3.6</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">To view the inspection section, click on
+                            <strong>"Inspection"</strong> in the left menu. The system will open the <strong>Inspection
+                                Details</strong> page.</span><span class="lang-ur">معائنہ سیکشن دیکھنے کے لیے بائیں مینو
+                            میں <strong>"Inspection"</strong> پر کلک کریں۔ سسٹم <strong>معائنہ تفصیلات</strong> صفحہ
+                            کھولے گا۔</span></p>
+
+                    <div class="sub-section">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#0e7490;">visibility</span>
+                            <span class="lang-en">3.6.1 Inspection Details</span><span class="lang-ur">3.6.1: معائنہ
+                                تفصیلات</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">Departments can view the complete inspection record,
+                                    including vehicle info, inspection details, checklist score, and observations. Click
+                                    <strong>"Back"</strong> to return to the list. It is also imperative for departments heads to nominate an inspecting Officer for their department.</span><span class="lang-ur">افسران
+                                    مکمل معائنہ ریکارڈ دیکھ سکتے ہیں، بشمول گاڑی کی معلومات، معائنہ تفصیلات، چیک لسٹ
+                                    سکور اور مشاہدات۔ فہرست پر واپس جانے کے لیے <strong>"Back"</strong> پر کلک
+                                    کریں۔</span></p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image019.png" alt="Inspection List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 6.1.1: Vehicle Inspections</span></div>'">
+                            </div>
+                            <p class="fig-caption">Vehicle Inspections</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#0e7490;">add_circle</span>
+                            <span class="lang-en">3.6.2 New Vehicle Inspection</span><span class="lang-ur">3.6.2: نئی
+                                گاڑی کا معائنہ</span>
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en">Click <b>+ New Inspection</b>. The system will open the
+                                            <b>New Vehicle Inspection</b> form.</span><span class="lang-ur"><b>+ New
+                                                Inspection</b> پر کلک کریں۔ سسٹم <b>نئی گاڑی معائنہ</b> فارم کھولے
+                                            گا۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Fill in inspection details:</b> Select the vehicle
+                                            and inspection type, enter the inspecting officer's name, designation, date,
+                                            location, odometer reading, vehicle condition, and upload any repair request
+                                            file.</span><span class="lang-ur"><b>معائنہ کی تفصیلات بھریں:</b> گاڑی اور
+                                            معائنہ کی قسم منتخب کریں، معائنہ کار افسر کا نام، عہدہ، تاریخ، مقام،
+                                            اوڈومیٹر ریڈنگ، گاڑی کی حالت درج کریں اور مرمت کی درخواست فائل اپ لوڈ
+                                            کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Complete the compliance checklist:</b> Tick all
+                                            applicable items - vehicle physically present, registration verified,
+                                            fitness certificate, logbook, authorization letter, insurance, and odometer
+                                            functional.</span><span class="lang-ur"><b>تعمیل چیک لسٹ مکمل کریں:</b> تمام
+                                            قابل اطلاق اشیاء کو نشان لگائیں - گاڑی جسمانی طور پر موجود، رجسٹریشن تصدیق
+                                            شدہ، فٹنس سرٹیفکیٹ، لاگ بک، اجازت نامہ، انشورنس اور اوڈومیٹر
+                                            فعال۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">4</span>
+                                    <span><span class="lang-en"><b>Record observations and save:</b> Enter findings,
+                                            discrepancies, recommendations, and remarks in the Observations section,
+                                            then click <b>Save Inspection</b>.</span><span class="lang-ur"><b>مشاہدات
+                                                ریکارڈ کریں اور محفوظ کریں:</b> Observations سیکشن میں نتائج، تضادات،
+                                            سفارشات اور ریمارکس درج کریں، پھر <b>Save Inspection</b> پر کلک
+                                            کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image020.png" alt="Inspection Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 6.1.2: New Vehicle Inspection Form</span></div>'">
+                            </div>
+                            <p class="fig-caption">New Vehicle Inspection Form</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-repair">
+                <div class="section-head">
+                    <div class="section-icon ic-amber">
+                        <span class="material-symbols-outlined">build</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.7: Repair / Maintenance</span><span
+                                class="lang-ur">3.7: مرمت / دیکھ بھال</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Log and manage vehicle maintenance
+                                records</span><span class="lang-ur">گاڑیوں کی دیکھ بھال ریکارڈ محفوظ اور انتظام
+                                کریں</span></p>
+                    </div>
+                    <span class="section-num">3.7</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">The Vehicle Repair request can be sent by the Allottee from
+                            the Smart District Workspace / Dastak mobile app, or managed directly by the department. This screen
+                            is for department use.</span><span class="lang-ur">گاڑی مرمت کی درخواست الاٹی Smart District
+                            Workspace موبائل ایپ سے بھیج سکتا ہے، یا محکمہ براہ راست انتظام کر سکتا ہے۔ یہ اسکرین
+                            محکمانہ استعمال کے لیے ہے۔</span></p>
+
+                    <ul class="steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <span><span class="lang-en">To view the repair and maintenance list, go to <b>VLMS Quick
+                                        Actions</b> and click <b>Repair</b>. The system will open the <b>Maintenance
+                                        Records List</b> page.</span><span class="lang-ur">مرمت اور دیکھ بھال کی فہرست
+                                    دیکھنے کے لیے <b>VLMS Quick Actions</b> میں جائیں اور <b>Repair</b> پر کلک کریں۔
+                                    سسٹم <b>Maintenance Records List</b> صفحہ کھولے گا۔</span></span>
+                        </li>
+                    </ul>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined" style="color:#b45309;">list_alt</span>
+                            <span class="lang-en">3.7.1 Maintenance Records List</span><span class="lang-ur">3.7.1 –
+                                دیکھ بھال ریکارڈ کی فہرست</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">Departments can view and manage maintenance records. To
+                                    add a new record, click <strong>Fresh Maintenance</strong>. In the Action column:
+                                    <strong>View (👁)</strong> to open details, <strong>Edit (✏)</strong> to update, or
+                                    <strong>Delete (🗑)</strong> to remove a record.</span><span class="lang-ur">افسران
+                                    دیکھ بھال ریکارڈ دیکھ اور انتظام کر سکتے ہیں۔ نئے ریکارڈ کے لیے <strong>Fresh
+                                        Maintenance</strong> پر کلک کریں۔ Action کالم میں: <strong>دیکھیں (👁)</strong>
+                                    تفصیلات کھولنے، <strong>ترمیم (✏)</strong> اپ ڈیٹ کرنے، یا <strong>حذف (🗑)</strong>
+                                    ریکارڈ ہٹانے کے لیے۔</span></p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image021.png" alt="Maintenance Records"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 7.1.1: Maintenance Records List</span></div>'">
+                            </div>
+                            <p class="fig-caption">Maintenance Records List</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#b45309;">add_circle</span>
+                            3.7.2 Fresh Maintenance
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en">To add a new maintenance record, click <b>+ Fresh
+                                                Maintenance</b>.</span><span class="lang-ur">نیا دیکھ بھال ریکارڈ شامل
+                                            کرنے کے لیے <b>+ Fresh Maintenance</b> پر کلک کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Select vehicle and maintenance details:</b> Choose an
+                                            inspected vehicle, set the maintenance type and status, enter a short title,
+                                            cost, invoice number, service dates, and mileage at service and next service
+                                            mileage.</span><span class="lang-ur"><b>گاڑی اور دیکھ بھال کی تفصیلات منتخب
+                                                کریں:</b> معائنہ شدہ گاڑی منتخب کریں، دیکھ بھال کی قسم اور حالت مقرر
+                                            کریں، مختصر عنوان، لاگت، انوائس نمبر، سروس کی تاریخیں اور مائلیج درج
+                                            کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Enter vendor and parts information:</b> Fill in the
+                                            vendor's name, contact, approving officer, and list any parts replaced
+                                            during the maintenance work.</span><span class="lang-ur"><b>فروش اور پرزوں
+                                                کی معلومات درج کریں:</b> فروش کا نام، رابطہ، منظوری دینے والے افسر کا
+                                            نام اور دیکھ بھال کے دوران بدلے گئے پرزے درج کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">4</span>
+                                    <span><span class="lang-en"><b>Add description and save:</b> Provide a detailed work
+                                            description and any remarks, then click <b>Save Record</b> to log the
+                                            maintenance entry.</span><span class="lang-ur"><b>تفصیل شامل کریں اور محفوظ
+                                                کریں:</b> کام کی تفصیلی وضاحت اور ریمارکس فراہم کریں، پھر <b>Save
+                                                Record</b> پر کلک کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="note warning">
+                                <span class="material-symbols-outlined">warning</span>
+                                <span><span class="lang-en"><strong>Note:</strong> Only vehicles with a <em>completed
+                                            inspection</em> are eligible for maintenance records.</span><span
+                                        class="lang-ur"><strong>نوٹ:</strong> صرف <em>مکمل معائنہ</em> رکھنے والی گاڑیاں
+                                        دیکھ بھال ریکارڈ کے لیے اہل ہیں۔</span></span>
+                            </div>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image022.png" alt="Maintenance Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 7.1.2: Fresh Maintenance Form</span></div>'">
+                            </div>
+                            <p class="fig-caption">Fresh Maintenance Form</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-condemn">
+                <div class="section-head">
+                    <div class="section-icon ic-red">
+                        <span class="material-symbols-outlined">gavel</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.8: Condemn / Auction</span><span
+                                class="lang-ur">3.8: ردّ / نیلامی</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Manage vehicle condemnation and auction
+                                requests</span><span class="lang-ur">گاڑیوں کی ردّ اور نیلامی درخواستوں کا انتظام</span>
+                        </p>
+                    </div>
+                    <span class="section-num">3.8</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">To view condemned or auction vehicles, click on
+                            <strong>Condemn Vehicle / Auction</strong>. The system will open the <strong>Vehicle
+                                Condemnation / Auction</strong> list.</span><span class="lang-ur">ردّ یا نیلام گاڑیاں
+                            دیکھنے کے لیے <strong>Condemn Vehicle / Auction</strong> پر کلک کریں۔ سسٹم <strong>گاڑی ردّ
+                                / نیلامی</strong> فہرست کھولے گا۔</span></p>
+
+                    <div class="sub-section">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined" style="color:#b91c1c;">list_alt</span>
+                            <span class="lang-en">3.8.1 Vehicle Condemnation / Auction List</span><span
+                                class="lang-ur">3.8.1 گاڑی ردّ / نیلامی فہرست</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">Departments can view and manage condemnation and auction
+                                    records. To create a new record, click <strong>+ New Condemnation Request</strong>.
+                                    In the Action column: <strong>View</strong> to open details, <strong>Edit</strong>
+                                    to update, or <strong>Delete</strong> to remove.</span><span class="lang-ur">افسران
+                                    ردّ اور نیلامی ریکارڈ دیکھ اور انتظام کر سکتے ہیں۔ نئے ریکارڈ کے لیے <strong>+ New
+                                        Condemnation Request</strong> پر کلک کریں۔ Action کالم میں:
+                                    <strong>دیکھیں</strong>، <strong>ترمیم</strong> یا <strong>حذف</strong> کریں۔</span>
+                            </p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image023.png" alt="Condemnation List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 8.1.1: Vehicle Condemnation List</span></div>'">
+                            </div>
+                            <p class="fig-caption">Vehicle Condemnation List</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#b91c1c;">add_circle</span>
+                            <span class="lang-en">3.8.2 New Condemnation Request</span><span class="lang-ur">3.8.2 –
+                                نئی ردّ درخواست</span>
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en"><b>Select the vehicle and fill in initiation
+                                                details:</b> Choose an eligible vehicle (status: Not Working, For
+                                            Auction, or Under Repair), confirm the department, district, initiation
+                                            date, condition at condemnation, and select the applicable condemnation
+                                            criteria per <em>Surplus Vehicle Policy 1987</em>.</span><span
+                                            class="lang-ur"><b>گاڑی منتخب کریں اور ابتداء کی تفصیلات بھریں:</b> اہل گاڑی
+                                            منتخب کریں (حالت: ناکارہ، نیلامی کے لیے، یا زیر مرمت)، محکمہ، ضلع، ابتداء کی
+                                            تاریخ، ردّ کے وقت حالت اور <em>Surplus Vehicle Policy 1987</em> کے تحت قابل
+                                            اطلاق ردّ معیار منتخب کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Enter pricing details:</b> Input the initial purchase
+                                            price and current market price; the system will auto-calculate the reserve
+                                            price using both <b>Method A</b> and <b>Method B</b>, applying the lower of
+                                            the two values.</span><span class="lang-ur"><b>قیمت کی تفصیلات درج کریں:</b>
+                                            ابتدائی خریداری قیمت اور موجودہ بازار قیمت درج کریں؛ سسٹم <b>Method A</b>
+                                            اور <b>Method B</b> دونوں سے ریزرو قیمت خودکار حساب لگائے گا، کم قیمت
+                                            استعمال ہوگی۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Complete disposal details and submit:</b> Select the
+                                            disposal method, enter auction proceedings minutes and auction price, upload
+                                            the condemnation certificate, then click <b>Submit Condemnation
+                                                Request</b>.</span><span class="lang-ur"><b>تصرف کی تفصیلات مکمل کریں
+                                                اور جمع کریں:</b> تصرف کا طریقہ منتخب کریں، نیلامی کارروائی کی کارروائی
+                                            اور نیلامی قیمت درج کریں، ردّ سرٹیفکیٹ اپ لوڈ کریں، پھر <b>Submit
+                                                Condemnation Request</b> پر کلک کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image024.png" alt="Condemnation Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 8.1.2: Vehicle Condemnation Request Form</span></div>'">
+                            </div>
+                            <p class="fig-caption">Vehicle Condemnation Request Form</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-usage">
+                <div class="section-head">
+                    <div class="section-icon ic-green">
+                        <span class="material-symbols-outlined">history</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.9: Usage Logs (E-Log Book)</span><span
+                                class="lang-ur">3.9: استعمال لاگ (ای-لاگ بک)</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Maintain and view vehicle usage
+                                records</span><span class="lang-ur">گاڑیوں کے استعمال کا ریکارڈ برقرار رکھیں اور
+                                دیکھیں</span></p>
+                    </div>
+                    <span class="section-num">3.9</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">The <strong>Usage Log</strong> can be maintained by the
+                            Allottee directly from the Smart District Workspace mobile app/Dastak. Use the <strong>Usage Log
+                                (E-Log Book)</strong> option to add new records.</span><span
+                            class="lang-ur"><strong>استعمال لاگ</strong> الاٹی Smart District Workspace موبائل ایپ سے
+                            براہ راست برقرار رکھ سکتا ہے۔ نئے ریکارڈ شامل کرنے کے لیے <strong>Usage Log (E-Log
+                                Book)</strong> آپشن استعمال کریں۔</span></p>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image026.png" alt="Usage Log"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 9.1: Usage Log (Mobile App)</span></div>'">
+                    </div>
+                    <p class="fig-caption">age Log (Mobile App)</p>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#15803d;">table_view</span>
+                            <span class="lang-en">3.9.1 Usage Logs List</span><span class="lang-ur">3.9.1: استعمال لاگ
+                                فہرست</span>
+                        </div>
+                        <div class="sub-body">
+                            <p class="desc"><span class="lang-en">The department can view and search vehicle usage logs from
+                                    this list in the web portal.</span><span class="lang-ur">صارف ویب پورٹل میں اس فہرست
+                                    سے گاڑیوں کے استعمال لاگ دیکھ اور تلاش کر سکتا ہے۔</span></p>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image027.png" alt="Usage Log List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 9.2: Vehicle Usage Log List</span></div>'">
+                            </div>
+                            <p class="fig-caption">hicle Usage Log List</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-reports">
+                <div class="section-head">
+                    <div class="section-icon ic-purple">
+                        <span class="material-symbols-outlined">assessment</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.10: Reports &amp; Audit</span><span
+                                class="lang-ur">3.10: رپورٹس اور آڈٹ</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Access reporting and audit center</span><span
+                                class="lang-ur">رپورٹنگ اور آڈٹ سینٹر تک رسائی</span></p>
+                    </div>
+                    <span class="section-num">3.10</span>
+                </div>
+                <div class="section-body">
+                    <p class="desc"><span class="lang-en">To open this screen, go to <strong>VLMS Quick Actions</strong>
+                            and click <strong>Reports &amp; Audit</strong>. Click the required card to open a specific
+                            report area.</span><span class="lang-ur">اس اسکرین کو کھولنے کے لیے <strong>VLMS Quick
+                                Actions</strong> میں جائیں اور <strong>Reports &amp; Audit</strong> پر کلک کریں۔ مخصوص
+                            رپورٹ کھولنے کے لیے متعلقہ کارڈ پر کلک کریں۔</span></p>
+
+                    <div class="report-grid">
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">local_gas_station</span>
+                            <span class="lang-en">Vehicle Usage Report</span><span class="lang-ur">گاڑی استعمال
+                                رپورٹ</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">oil_barrel</span>
+                            <span class="lang-en">Fuel Consumption Report</span><span class="lang-ur">ایندھن کھپت
+                                رپورٹ</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span class="lang-en">Maintenance Cost Report</span><span class="lang-ur">دیکھ بھال لاگت
+                                رپورٹ</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">manage_history</span>
+                            Vehicle History Report
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">manage_history</span>
+                            <span class="lang-en">Vehicle History Report</span><span class="lang-ur">گاڑی تاریخ
+                                رپورٹ</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">security</span>
+                            <span class="lang-en">Audit &amp; Monitoring</span><span class="lang-ur">آڈٹ اور
+                                نگرانی</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">analytics</span>
+                            <span class="lang-en">Comprehensive Audit</span><span class="lang-ur">جامع آڈٹ</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                            <span class="lang-en">Purchase / Procurement</span><span class="lang-ur">خریداری</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">gavel</span>
+                            <span class="lang-en">Condemnation / Auction</span><span class="lang-ur">ردّ / نیلامی</span>
+                        </div>
+                        <div class="report-card">
+                            <span class="material-symbols-outlined">fact_check</span>
+                            <span class="lang-en">Vehicle Inspections</span><span class="lang-ur">گاڑی معائنہ</span>
+                        </div>
+                    </div>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image028.png" alt="Reports Center"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 10.1: Reports &amp; Audit Center</span></div>'">
+                    </div>
+                    <p class="fig-caption">ports &amp; Audit Center</p>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-audit">
+                <div class="section-head">
+                    <div class="section-icon ic-navy">
+                        <span class="material-symbols-outlined">security</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.11: Comprehensive Audit</span><span class="lang-ur">3.11: جامع آڈٹ</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Monitor compliance alerts and fleet
+                                anomalies</span><span class="lang-ur">تعمیل الرٹس اور بیڑے کی بے ضابطگیوں کی
+                                نگرانی</span></p>
+                    </div>
+                    <span class="section-num">3.11</span>
+                </div>
+                <div class="section-body">
+                    <ul class="steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <span><span class="lang-en"><b>Review the summary tiles:</b> Check the top panel for instant
+                                    counts of compliance alerts covering <b>fuel overuse</b>, <b>idle vehicles</b>,
+                                    <b>missing usage logs</b>, <b>high maintenance costs</b>, and <b>expired insurance
+                                        or fitness certificates</b>.</span><span class="lang-ur"><b>خلاصہ ٹائلز کا جائزہ
+                                        لیں:</b> اوپری پینل میں تعمیل الرٹس کی فوری گنتی دیکھیں - <b>ایندھن کی
+                                        زیادتی</b>، <b>بیکار گاڑیاں</b>، <b>غائب استعمال لاگ</b>، <b>زیادہ دیکھ بھال
+                                        لاگت</b> اور <b>میعاد ختم انشورنس یا فٹنس سرٹیفکیٹ</b>۔</span></span>
+                        </li>
+                        <li>
+                            <span class="step-num">2</span>
+                            <span><span class="lang-en"><b>Investigate flagged vehicles:</b> Review detailed sections
+                                    for idle vehicles (no usage in 30 days), vehicles with no usage logs ever recorded,
+                                    and vehicles exceeding PKR 100,000 in maintenance costs.</span><span
+                                    class="lang-ur"><b>نشان زدہ گاڑیوں کی تحقیق کریں:</b> بیکار گاڑیاں (30 دنوں میں کوئی
+                                    استعمال نہیں)، کبھی استعمال لاگ نہ رکھنے والی گاڑیاں، اور PKR 100,000 سے زیادہ دیکھ
+                                    بھال لاگت والی گاڑیوں کا جائزہ لیں۔</span></span>
+                        </li>
+                        <li>
+                            <span class="step-num">3</span>
+                            <span><span class="lang-en"><b>Act on anomalies:</b> Address any flagged records by updating
+                                    usage logs, reassigning idle vehicles, or resolving document expiries. Green
+                                    checkmarks confirm fully compliant areas.</span><span class="lang-ur"><b>بے ضابطگیوں
+                                        پر کارروائی کریں:</b> نشان زدہ ریکارڈ کو استعمال لاگ اپ ڈیٹ کرکے، بیکار گاڑیاں
+                                    دوبارہ الاٹ کرکے، یا میعاد ختم دستاویزات حل کرکے درست کریں۔ سبز نشان مکمل تعمیل کی
+                                    تصدیق کرتے ہیں۔</span></span>
+                        </li>
+                    </ul>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image029.png" alt="Comprehensive Audit"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 11.1: Comprehensive Audit</span></div>'">
+                    </div>
+                    <p class="fig-caption">mprehensive Audit</p>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-full-audit">
+                <div class="section-head">
+                    <div class="section-icon ic-blue">
+                        <span class="material-symbols-outlined">analytics</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.12: Full Audit Report</span><span
+                                class="lang-ur">3.12: مکمل آڈٹ رپورٹ</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Comprehensive vehicle audit with fleet-wide
+                                statistics</span><span class="lang-ur">بیڑے کی مکمل آڈٹ رپورٹ بشمول اعداد و شمار</span>
+                        </p>
+                    </div>
+                    <span class="section-num">3.12</span>
+                </div>
+                <div class="section-body">
+                    <ul class="steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <span><span class="lang-en">Go to <b>VLMS Quick Actions</b> and click <b>Full Audit</b>. The
+                                    system will open the <b>Comprehensive Vehicle Audit Report</b> page.</span><span
+                                    class="lang-ur"><b>VLMS Quick Actions</b> میں جائیں اور <b>Full Audit</b> پر کلک
+                                    کریں۔ سسٹم <b>جامع گاڑی آڈٹ رپورٹ</b> صفحہ کھولے گا۔</span></span>
+                        </li>
+                        <li>
+                            <span class="step-num">2</span>
+                            <span><span class="lang-en"><b>Review the fleet summary tiles:</b> Check total vehicles,
+                                    allotted vehicles, compliance rate, unauthorized vehicles, expired documents, fuel
+                                    overuse, missing usage logs, and duplicate registrations at a glance.</span><span
+                                    class="lang-ur"><b>بیڑے کے خلاصہ ٹائلز کا جائزہ لیں:</b> کل گاڑیاں، الاٹ شدہ، تعمیل
+                                    شرح، غیر مجاز گاڑیاں، میعاد ختم دستاویزات، ایندھن کی زیادتی، غائب استعمال لاگ اور
+                                    ڈپلیکیٹ رجسٹریشن ایک نظر میں دیکھیں۔</span></span>
+                        </li>
+                        <li>
+                            <span class="step-num">3</span>
+                            <span><span class="lang-en"><b>Inspect vehicles with no usage logs:</b> Review the first
+                                    table listing vehicles that have no usage logs, noting their registration,
+                                    brand/model, allottee, and department.</span><span class="lang-ur"><b>بغیر استعمال
+                                        لاگ کی گاڑیوں کا جائزہ لیں:</b> پہلے جدول میں ایسی گاڑیوں کی فہرست دیکھیں جن کا
+                                    کوئی استعمال لاگ نہیں، ان کی رجسٹریشن، برانڈ/ماڈل، الاٹی اور محکمہ نوٹ
+                                    کریں۔</span></span>
+                        </li>
+                        <li>
+                            <span class="step-num">4</span>
+                            <span><span class="lang-en"><b>Examine maintenance costs:</b> Review the second table for
+                                    vehicles with recorded maintenance expenditure, checking total cost and number of
+                                    records to identify high-cost anomalies.</span><span class="lang-ur"><b>دیکھ بھال کے
+                                        اخراجات کا جائزہ لیں:</b> دوسرے جدول میں دیکھ بھال اخراجات رکھنے والی گاڑیاں
+                                    دیکھیں، کل لاگت اور ریکارڈ کی تعداد چیک کریں۔</span></span>
+                        </li>
+                    </ul>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image030.png" alt="Full Audit"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 12.1.2: Comprehensive Vehicle Audit Report</span></div>'">
+                    </div>
+                    <p class="fig-caption">Comprehensive Vehicle Audit Report</p>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-accidents">
+                <div class="section-head">
+                    <div class="section-icon ic-red">
+                        <span class="material-symbols-outlined">car_crash</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.13: Accident Vehicles</span><span
+                                class="lang-ur">3.13: حادثہ گاڑیاں</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Record and manage vehicle accident
+                                reports</span><span class="lang-ur">گاڑیوں کے حادثات کی رپورٹ ریکارڈ اور انتظام
+                                کریں</span></p>
+                    </div>
+                    <span class="section-num">3.13</span>
+                </div>
+                <div class="section-body">
+                    <ul class="steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <span><span class="lang-en">To view the Accident Vehicle List, go to <b>VLMS Quick
+                                        Actions</b> and click <b>Accident Vehicles</b>.</span><span
+                                    class="lang-ur">حادثہ گاڑیوں کی فہرست دیکھنے کے لیے <b>VLMS Quick Actions</b> میں
+                                    جائیں اور <b>Accident Vehicles</b> پر کلک کریں۔</span></span>
+                        </li>
+                        <li>
+                            <span class="step-num">2</span>
+                            <span><span class="lang-en">To add a new accident entry, click <b>Add Accident Record</b> at
+                                    the top right. The system will open the <b>Accident Details</b> form.</span><span
+                                    class="lang-ur">نئی حادثہ اندراج شامل کرنے کے لیے اوپر دائیں <b>Add Accident
+                                        Record</b> پر کلک کریں۔ سسٹم <b>Accident Details</b> فارم کھولے
+                                    گا۔</span></span>
+                        </li>
+                    </ul>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image031.png" alt="Accident List"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 13.1: Accident Vehicle List</span></div>'">
+                    </div>
+                    <p class="fig-caption">cident Vehicle List</p>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#b91c1c;">add_circle</span>
+                            <span class="lang-en">3.13.1 Add Accident Vehicle</span><span class="lang-ur">3.13.1 –
+                                حادثہ گاڑی شامل کریں</span>
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">1</span>
+                                    <span><span class="lang-en"><b>Enter accident details:</b> Select the vehicle, enter
+                                            the accident location, date, inquiry date, and closing date of
+                                            inquiry.</span><span class="lang-ur"><b>حادثہ کی تفصیلات درج کریں:</b> گاڑی
+                                            منتخب کریں، حادثہ کا مقام، تاریخ، تحقیق کی تاریخ اور تحقیق ختم ہونے کی تاریخ
+                                            درج کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en"><b>Record inquiry outcomes and upload evidence:</b>
+                                            Describe the outcomes of the inquiry, upload pictorial evidence (multiple
+                                            files allowed), and attach the FIR number and FIR copy if
+                                            applicable.</span><span class="lang-ur"><b>تحقیقاتی نتائج ریکارڈ کریں اور
+                                                شواہد اپ لوڈ کریں:</b> تحقیق کے نتائج بیان کریں، تصویری شواہد اپ لوڈ
+                                            کریں (متعدد فائلیں درست)، اور FIR نمبر اور FIR کی نقل منسلک
+                                            کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Add remarks and save:</b> Enter any additional
+                                            remarks, then click <b>Save Accident Record</b> to log the
+                                            accident.</span><span class="lang-ur"><b>ریمارکس شامل کریں اور محفوظ
+                                                کریں:</b> اضافی ریمارکس درج کریں، پھر <b>Save Accident Record</b> پر کلک
+                                            کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image032.png" alt="Add Accident Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 13.1.1: Add Accident Vehicle Form</span></div>'">
+                            </div>
+                            <p class="fig-caption">Add Accident Vehicle Form</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-theft">
+                <div class="section-head">
+                    <div class="section-icon ic-rose">
+                        <span class="material-symbols-outlined">policy</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">3.14: Stolen / Theft Vehicles</span><span
+                                class="lang-ur">3.14: چوری / غائب گاڑیاں</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Report and track stolen vehicle
+                                records</span><span class="lang-ur">چوری شدہ گاڑیوں کی رپورٹ اور ٹریکنگ</span></p>
+                    </div>
+                    <span class="section-num">3.14</span>
+                </div>
+                <div class="section-body">
+                    <ul class="steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <span><span class="lang-en">To view stolen or theft vehicles, go to <b>VLMS Quick
+                                        Actions</b> and click <b>Theft Vehicles</b>.</span><span class="lang-ur">چوری یا
+                                    غائب گاڑیاں دیکھنے کے لیے <b>VLMS Quick Actions</b> میں جائیں اور <b>Theft
+                                        Vehicles</b> پر کلک کریں۔</span></span>
+                        </li>
+                    </ul>
+
+                    <div class="screenshot">
+                        <img src="assets/images/image033.png" alt="Theft List"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 14.1: Stolen/Theft Vehicle List</span></div>'">
+                    </div>
+                    <p class="fig-caption">olen/Theft Vehicle List</p>
+
+                    <div class="sub-section" style="margin-top:1rem">
+                        <div class="sub-head">
+                            <span class="material-symbols-outlined"
+                                style="color:#be123c;">add_circle</span>
+                            <span class="lang-en">3.14.1 Add Stolen / Theft Vehicle</span><span class="lang-ur">3.14.1 –
+                                چوری گاڑی شامل کریں</span>
+                        </div>
+                        <div class="sub-body">
+                            <ul class="steps">
+                                <li>
+                                    <span class="step-num">2</span>
+                                    <span><span class="lang-en">To add a new theft record, click <b>Add Theft
+                                                Record</b>.</span><span class="lang-ur">نئی چوری ریکارڈ شامل کرنے کے لیے
+                                            <b>Add Theft Record</b> پر کلک کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">3</span>
+                                    <span><span class="lang-en"><b>Enter theft and FIR details:</b> Select the stolen
+                                            vehicle, enter the FIR number (Mandatory), district, tehsil, and the inquiry start and
+                                            closing dates.</span><span class="lang-ur"><b>چوری اور FIR کی تفصیلات درج
+                                                کریں:</b> چوری شدہ گاڑی منتخب کریں، FIR نمبر، ضلع، تحصیل اور تحقیق کی
+                                            ابتداء اور اختتام کی تاریخیں درج کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">4</span>
+                                    <span><span class="lang-en"><b>Record inquiry outcomes:</b> Enter the outcomes of
+                                            the inquiry, set the recovery status, and add any relevant
+                                            remarks.</span><span class="lang-ur"><b>تحقیقاتی نتائج ریکارڈ کریں:</b>
+                                            تحقیق کے نتائج درج کریں، بازیابی کی حالت مقرر کریں اور متعلقہ ریمارکس شامل
+                                            کریں۔</span></span>
+                                </li>
+                                <li>
+                                    <span class="step-num">5</span>
+                                    <span><span class="lang-en"><b>Attach FIR copy and save:</b> Upload a copy of the
+                                            FIR document, then click <b>Save Theft Record</b> to log the stolen
+                                            vehicle.</span><span class="lang-ur"><b>FIR کی نقل منسلک کریں اور محفوظ
+                                                کریں:</b> FIR دستاویز کی نقل اپ لوڈ کریں، پھر <b>Save Theft Record</b>
+                                            پر کلک کریں۔</span></span>
+                                </li>
+                            </ul>
+
+                            <div class="screenshot">
+                                <img src="assets/images/image034.png" alt="Theft Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 14.2: Add Stolen/Theft Vehicle Form</span></div>'">
+                            </div>
+                            <p class="fig-caption">d Stolen/Theft Vehicle Form</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="section-card" id="sec-faq">
+                <div class="section-head">
+                    <div class="section-icon" style="background:#f1f5f9;color:#475569">
+                        <span class="material-symbols-outlined">help</span>
+                    </div>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title"><span class="lang-en">Frequently Asked Questions</span><span
+                                class="lang-ur">اکثر پوچھے جانے والے سوالات</span></h2>
+                        <p class="section-subtitle"><span class="lang-en">Common queries about KP e-VLMS</span><span
+                                class="lang-ur">کے پی ای-وی ایل ایم ایس کے متعلق عام سوالات</span></p>
+                    </div>
+                    <span class="section-num">FAQ</span>
+                </div>
+                <div class="section-body">
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">How do I obtain my login credentials for the KP e-VLMS
+                                portal?</span><span class="lang-ur">KP e-VLMS پورٹل کے لیے لاگ ان اسناد کیسے حاصل کی
+                                جائیں؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">Username and password are issued by <strong>KPITB (KP
+                                    Information Technology Board)</strong>. Contact your departmental IT focal person or
+                                reach out to the KPITB helpdesk to request access credentials.</span><span
+                                class="lang-ur">صارف نام اور پاس ورڈ <strong>KPITB (کے پی انفارمیشن ٹیکنالوجی
+                                    بورڈ)</strong> جاری کرتا ہے۔ رسائی کے لیے اپنے محکمانہ آئی ٹی فوکل پرسن سے رابطہ
+                                کریں یا KPITB ہیلپ ڈیسک سے مدد لیں۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">Can employees add vehicles directly without a prior
+                                inspection?</span><span class="lang-ur">کیا ملازمین بغیر معائنہ کے براہ راست گاڑیاں شامل
+                                کر سکتے ہیں؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en"><strong>No.</strong> Vehicles must first be added via the
+                                <strong>Add Vehicle</strong> module. Only vehicles with a <em>completed inspection
+                                    record</em> are eligible to have maintenance (repair) entries logged against
+                                them.</span><span class="lang-ur"><strong>نہیں۔</strong> گاڑیاں پہلے <strong>Add
+                                    Vehicle</strong> ماڈیول سے شامل کی جانی چاہئیں۔ صرف <em>مکمل معائنہ ریکارڈ</em>
+                                رکھنے والی گاڑیاں دیکھ بھال (مرمت) اندراج کے لیے اہل ہیں۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">What is the Smart District Workspace app, and do I need
+                                it?</span><span class="lang-ur">Smart District Workspace ایپ کیا ہے اور کیا مجھے اس کی
+                                ضرورت ہے؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">The <strong>Smart District Workspace</strong> is a mobile
+                                app (available on Google Play Store) for vehicle allottees. Allottees use it to maintain
+                                their E-Log Book (usage logs), submit transfer/return requests, and report repairs.
+                                Department staff can also perform these actions via the web portal.</span><span
+                                class="lang-ur"><strong>Smart District Workspace</strong> ایک موبائل ایپ ہے (گوگل پلے
+                                اسٹور پر دستیاب) جو گاڑی الاٹیوں کے لیے ہے۔ الاٹی اس سے ای-لاگ بک برقرار رکھتے،
+                                منتقلی/واپسی کی درخواستیں بھیجتے اور مرمت کی رپورٹ کرتے ہیں۔ محکمانہ عملہ بھی ویب پورٹل
+                                سے یہ کام کر سکتا ہے۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">What employee grades are eligible to be added in the VLMS?</span><span
+                                class="lang-ur">وی ایل ایم ایس میں کون سے گریڈ کے ملازمین شامل کیے جا سکتے ہیں؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">The <strong>Employee</strong> term in VLMS refers
+                                specifically to <strong>Government Officers of Grade BS-17 to BS-22</strong>. Only these
+                                officers are eligible to have vehicle entitlements and allotments registered in their
+                                name.</span><span class="lang-ur">وی ایل ایم ایس میں <strong>ملازم</strong> سے مراد خاص
+                                طور پر <strong>گریڈ BS-17 سے BS-22 تک کے سرکاری افسران</strong> ہیں۔ صرف یہ افسران گاڑی
+                                کے استحقاق اور الاٹمنٹ کے اہل ہیں۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">What approvals are required before submitting a procurement
+                                request?</span><span class="lang-ur">خریداری کی درخواست جمع کرنے سے پہلے کون سی منظوریاں
+                                ضروری ہیں؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">Before adding a procurement entry, your department must
+                                have secured all three of the following: <strong>(1) Cabinet Approval</strong>,
+                                <strong>(2) Transport Committee Report (TCR) Approval</strong>, and <strong>(3) a
+                                    Supplier Invoice</strong>. These documents must be uploaded during the submission
+                                process.</span><span class="lang-ur">خریداری کا اندراج کرنے سے پہلے یہ تینوں لازمی ہیں:
+                                <strong>(1) کابینہ کی منظوری</strong>، <strong>(2) ٹرانسپورٹ رپورٹنگ کمیٹی (TCR) کی
+                                    منظوری</strong> اور <strong>(3) فروش کا انوائس</strong>۔ یہ دستاویزات جمع کرواتے وقت
+                                اپ لوڈ کرنی ہوں گی۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">Which vehicles are eligible for a Condemnation/Auction
+                                request?</span><span class="lang-ur">کون سی گاڑیاں ردّ/نیلامی کی درخواست کے لیے اہل
+                                ہیں؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">Only vehicles with one of the following statuses are
+                                eligible for a condemnation request: <strong>Not Working</strong>, <strong>For
+                                    Auction</strong>, or <strong>Under Repair</strong>. Condemnation criteria must be
+                                selected per the <em>Surplus Vehicle Policy 1987</em>.</span><span class="lang-ur">صرف
+                                وہ گاڑیاں اہل ہیں جن کی حالت یہ ہو: <strong>ناکارہ</strong>، <strong>نیلامی کے
+                                    لیے</strong> یا <strong>زیر مرمت</strong>۔ ردّ کا معیار <em>Surplus Vehicle Policy
+                                    1987</em> کے مطابق منتخب کیا جائے گا۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">How is the reserve price calculated in a condemnation
+                                request?</span><span class="lang-ur">ردّ درخواست میں ریزرو قیمت کیسے حساب لگائی جاتی
+                                ہے؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">The system automatically calculates the reserve price
+                                using two methods - <strong>Method A</strong> and <strong>Method B</strong> - based on
+                                the initial purchase price and current market price you enter. The <strong>lower of the
+                                    two</strong> calculated values is applied as the reserve price.</span><span
+                                class="lang-ur">سسٹم خودکار طور پر دو طریقوں سے ریزرو قیمت حساب لگاتا ہے -
+                                <strong>Method A</strong> اور <strong>Method B</strong> - آپ کی درج کردہ ابتدائی خریداری
+                                قیمت اور موجودہ بازار قیمت کی بنیاد پر۔ دونوں میں سے <strong>کم قیمت</strong> ریزرو قیمت
+                                کے طور پر لاگو ہوتی ہے۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">An allottee hasn't logged any usage in 30 days. What should I
+                                do?</span><span class="lang-ur">الاٹی نے 30 دنوں میں کوئی استعمال ریکارڈ نہیں کیا۔ کیا
+                                کریں؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">The system's <strong>Audit module</strong> flags vehicles
+                                with no usage logged in the past 30 days as <em>Idle Vehicles</em>. The department
+                                should investigate, update the usage logs via the web portal or Smart District Workspace
+                                app, or consider reassigning the vehicle.</span><span class="lang-ur">سسٹم کا
+                                <strong>آڈٹ ماڈیول</strong> 30 دنوں میں کوئی استعمال ریکارڈ نہ رکھنے والی گاڑیوں کو
+                                <em>بیکار گاڑیاں</em> قرار دیتا ہے۔ محکمہ تحقیق کرے، ویب پورٹل یا Smart District
+                                Workspace ایپ سے استعمال لاگ اپ ڈیٹ کرے، یا گاڑی دوبارہ الاٹ کرنے پر غور کرے۔</span></p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">Where can I find fuel consumption and maintenance cost
+                                reports?</span><span class="lang-ur">ایندھن کی کھپت اور دیکھ بھال لاگت رپورٹس کہاں ملیں
+                                گی؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en">Go to <strong>VLMS Quick Actions → Reports &amp;
+                                    Audit</strong>. From the Reports &amp; Audit Center, click the relevant card -
+                                <strong>Fuel Consumption Report</strong> or <strong>Maintenance Cost Report</strong> -
+                                to access detailed breakdowns.</span><span class="lang-ur"><strong>VLMS Quick Actions →
+                                    Reports &amp; Audit</strong> میں جائیں۔ Reports &amp; Audit Center سے متعلقہ کارڈ پر
+                                کلک کریں - <strong>Fuel Consumption Report</strong> یا <strong>Maintenance Cost
+                                    Report</strong> - تفصیلی رپورٹ دیکھنے کے لیے۔</span></p>
+                    </div>
+
+                    <div class="faq-item" style="border-bottom:none">
+                        <div class="faq-q">
+                            <span class="material-symbols-outlined">help_outline</span>
+                            <span class="lang-en">Can a transfer request be initiated from the mobile app?</span><span
+                                class="lang-ur">کیا موبائل ایپ سے منتقلی کی درخواست بھیجی جا سکتی ہے؟</span>
+                        </div>
+                        <p class="faq-a"><span class="lang-en"><strong>Yes.</strong> Allottees can initiate a
+                                <strong>Transfer or Return Request</strong> directly from the <em>Smart District
+                                    Workspace</em> mobile app. The department can then review and process the request
+                                via the web portal under <strong>Transfer Vehicle → Transfer/Return
+                                    Request</strong>.</span><span class="lang-ur"><strong>ہاں۔</strong> الاٹی براہ راست
+                                <em>Smart District Workspace</em> موبائل ایپ سے <strong>منتقلی یا واپسی کی
+                                    درخواست</strong> شروع کر سکتا ہے۔ محکمہ پھر ویب پورٹل پر <strong>Transfer Vehicle →
+                                    Transfer/Return Request</strong> کے تحت درخواست کا جائزہ لے اور کارروائی کرے۔</span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>    
+    <footer class="page-footer">
+        <p><span class="lang-en"><strong>KP Vehicle Lifecycle Management System</strong> Administration Department
+                &nbsp;|&nbsp; Government of Khyber Pakhtunkhwa</span><span class="lang-ur"><strong>کے پی وہیکل لائف
+                    سائیکل مینیجمنٹ سسٹم</strong> &nbsp;|&nbsp; حکومت خیبرپختونخوا</span></p>
+        <p style="margin-top:.3rem"><span class="lang-en">Developed &amp; maintained by <strong>KP Information
+                    Technology Board (KPITB)</strong> &nbsp;·&nbsp; <span class="lang-ur">تیار و برقرار کردہ: <strong>کے
+                        پی انفارمیشن ٹیکنالوجی بورڈ (KPITB)</strong> &nbsp;·&nbsp; </p>
+    </footer>    
+    <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+        <span class="material-symbols-outlined">keyboard_arrow_up</span>
+    </button>
+
+    <script>
+        /* ─ Scroll-to-top visibility ─ */
+        window.addEventListener('scroll', () => {
+            document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 300);
+        });
+
+        /* ─ Active nav link on scroll ─ */
+        const sections = document.querySelectorAll('.section-card[id]');
+        const navLinks = document.querySelectorAll('.nav-list a');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.querySelector('.nav-num') && (link.querySelector('.nav-num').style.background = '');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+
+        /* ─ Sidebar search filter ─ */
+        function filterNav(query) {
+            const q = query.toLowerCase();
+            document.querySelectorAll('#navList > li').forEach(li => {
+                const text = li.textContent.toLowerCase();
+                li.style.display = (!q || text.includes(q)) ? '' : 'none';
+            });
+            document.querySelectorAll('.nav-divider').forEach(d => d.style.display = q ? 'none' : '');
+        }
+    </script>    
+    <div id="lightbox" role="dialog" aria-modal="true">
+        <button id="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        // ── Language Switcher ──
+        (function () {
+            var btnEn = document.getElementById('lang-btn-en');
+            var btnUr = document.getElementById('lang-btn-ur');
+            var fontLink = document.getElementById('urdu-font-link');
+            var fontLoaded = false;
+
+            function loadUrduFont() {
+                if (fontLoaded) { return; }
+                fontLink.href = fontLink.getAttribute('data-href');
+                fontLoaded = true;
+            }
+
+            function setLang(lang) {
+                if (lang === 'ur') {
+                    loadUrduFont();
+                    document.body.classList.add('urdu-mode');
+                    btnEn.classList.remove('active');
+                    btnUr.classList.add('active');
+                    try { localStorage.setItem('vlms-guide-lang', 'ur'); } catch (e) { }
+                } else {
+                    document.body.classList.remove('urdu-mode');
+                    btnEn.classList.add('active');
+                    btnUr.classList.remove('active');
+                    try { localStorage.setItem('vlms-guide-lang', 'en'); } catch (e) { }
+                }
+            }
+
+            btnEn.addEventListener('click', function () { setLang('en'); });
+            btnUr.addEventListener('click', function () { setLang('ur'); });
+
+            try {
+                var saved = localStorage.getItem('vlms-guide-lang');
+                if (saved === 'ur') { setLang('ur'); }
+            } catch (e) { }
+        })();
+    </script>
+
+    <script>
+        /* ══════════════════════════════════════════════
+           ALL 12 FEATURES – KP e-VLMS Guide
+           ══════════════════════════════════════════════ */
+
+        (function () {
+            'use strict';
+
+            /* ── 1. READING PROGRESS BAR ── */
+            var progressBar = document.getElementById('progress-bar');
+            function updateProgress() {
+                var scrollTop = window.scrollY || document.documentElement.scrollTop;
+                var docH = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var pct = docH > 0 ? scrollTop / docH : 0;
+                progressBar.style.transform = 'scaleX(' + pct + ')';
+            }
+            window.addEventListener('scroll', updateProgress, { passive: true });
+
+            /* ── 2. ESTIMATED READ TIME ── */
+            (function () {
+                var mainText = document.querySelector('main') || document.body;
+                var words = mainText.innerText.trim().split(/\s+/).length;
+                var mins = Math.max(1, Math.round(words / 200));
+                var el = document.getElementById('read-time-text');
+                if (el) el.textContent = mins + ' min read · ' + words.toLocaleString() + ' words';
+            })();
+
+            /* ── 5. COLLAPSIBLE SECTIONS ── */
+            document.querySelectorAll('.section-card').forEach(function (card) {
+                var head = card.querySelector('.section-head');
+                var body = card.querySelector('.section-body');
+                if (!head || !body) return;
+
+                /* inject collapse button */
+                var btn = document.createElement('button');
+                btn.className = 'collapse-btn';
+                btn.setAttribute('aria-label', 'Collapse section');
+                btn.innerHTML = '<span class="material-symbols-outlined">expand_less</span>';
+                head.appendChild(btn);
+
+                /* set initial max-height so transition works */
+                body.style.maxHeight = body.scrollHeight + 'px';
+
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var collapsed = card.classList.toggle('collapsed');
+                    btn.setAttribute('aria-label', collapsed ? 'Expand section' : 'Collapse section');
+                    body.style.maxHeight = collapsed ? '0px' : body.scrollHeight + 'px';
+                });
+            });
+
+            /* ── 6. PER-SECTION PRINT BUTTON ── */
+            document.querySelectorAll('.section-card').forEach(function (card) {
+                var head = card.querySelector('.section-head');
+                if (!head) return;
+
+                var btn = document.createElement('button');
+                btn.className = 'section-print-btn';
+                btn.setAttribute('aria-label', 'Print this section');
+                btn.innerHTML = '<span class="material-symbols-outlined">print</span>';
+                head.appendChild(btn);
+
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    /* expand section if collapsed */
+                    if (card.classList.contains('collapsed')) {
+                        card.classList.remove('collapsed');
+                        var body = card.querySelector('.section-body');
+                        if (body) body.style.maxHeight = body.scrollHeight + 'px';
+                    }
+                    document.body.classList.add('printing-section');
+                    card.classList.add('print-target');
+                    window.print();
+                    document.body.classList.remove('printing-section');
+                    card.classList.remove('print-target');
+                });
+            });
+
+            /* ── 7. COPY-TO-CLIPBOARD ON STEP LISTS ── */
+            document.querySelectorAll('ul.steps').forEach(function (ul) {
+                /* wrap in .steps-wrap */
+                var wrap = document.createElement('div');
+                wrap.className = 'steps-wrap';
+                ul.parentNode.insertBefore(wrap, ul);
+                wrap.appendChild(ul);
+
+                var btn = document.createElement('button');
+                btn.className = 'copy-steps-btn';
+                btn.setAttribute('aria-label', 'Copy steps');
+                btn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>';
+                wrap.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    var lines = Array.from(ul.querySelectorAll('li')).map(function (li, i) {
+                        var enSpan = li.querySelector('.lang-en');
+                        return (i + 1) + '. ' + (enSpan ? enSpan.textContent.trim() : li.textContent.trim());
+                    });
+                    navigator.clipboard.writeText(lines.join('\n')).then(function () {
+                        btn.innerHTML = '<span class="material-symbols-outlined">check</span>';
+                        setTimeout(function () {
+                            btn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>';
+                        }, 1800);
+                    }).catch(function () { });
+                });
+            });
+
+            /* ── 8. DARK MODE TOGGLE ── */
+            var darkBtn = document.getElementById('dark-btn');
+            var darkIcon = document.getElementById('dark-icon');
+            function applyDark(on) {
+                document.body.classList.toggle('dark-mode', on);
+                darkIcon.textContent = on ? 'light_mode' : 'dark_mode';
+                try { localStorage.setItem('vlms-guide-dark', on ? '1' : '0'); } catch (e) { }
+            }
+            try {
+                var savedDark = localStorage.getItem('vlms-guide-dark');
+                if (savedDark === '1') applyDark(true);
+                else if (savedDark === null && window.matchMedia('(prefers-color-scheme: dark)').matches) applyDark(true);
+            } catch (e) { }
+            if (darkBtn) darkBtn.addEventListener('click', function () { applyDark(!document.body.classList.contains('dark-mode')); });
+
+            /* ── 8a. MOBILE SIDEBAR TOGGLE ── */
+            var navToggle = document.getElementById('nav-toggle');
+            var navClose = document.getElementById('nav-close');
+            var sidebar = document.getElementById('sidebar');
+            function isMobile() { return window.innerWidth <= 900; }
+            function closeSidebar() {
+                sidebar.classList.remove('open');
+                navToggle.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            function openSidebar() {
+                sidebar.classList.add('open');
+                navToggle.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            function syncCloseBtn() {
+                if (navClose) navClose.style.display = isMobile() ? 'flex' : 'none';
+            }
+            function syncStickyToggle() {
+                if (!navToggle) return;
+                if (isMobile() && window.scrollY >= 10) {
+                    navToggle.classList.add('sticky');
+                } else {
+                    navToggle.classList.remove('sticky');
+                }
+            }
+            window.addEventListener('scroll', syncStickyToggle, { passive: true });
+            window.addEventListener('resize', function () { syncCloseBtn(); syncStickyToggle(); });
+            syncCloseBtn();
+            syncStickyToggle();
+            if (navToggle && sidebar) {
+                navToggle.addEventListener('click', function () {
+                    sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+                });
+                if (navClose) navClose.addEventListener('click', closeSidebar);
+                sidebar.querySelectorAll('.nav-list a').forEach(function (a) {
+                    a.addEventListener('click', function () {
+                        if (isMobile()) closeSidebar();
+                    });
+                });
+                /* close on backdrop (overlay) click */
+                sidebar.addEventListener('click', function (e) {
+                    if (e.target === sidebar) closeSidebar();
+                });
+            }
+
+            /* ── 8b. COMPACT / NORMAL MODE TOGGLE ── */
+            var compactBtn = document.getElementById('compact-btn');
+            var normalBtn = document.getElementById('normal-btn');
+            function applyCompact(on) {
+                document.documentElement.classList.toggle('compact-mode', on);
+                if (compactBtn) compactBtn.classList.toggle('active', on);
+                if (normalBtn) normalBtn.classList.toggle('active', !on);
+                try { localStorage.setItem('vlms-guide-compact', on ? '1' : '0'); } catch (e) { }
+            }
+            try {
+                var savedCompact = localStorage.getItem('vlms-guide-compact');
+                applyCompact(savedCompact !== '0'); /* default: compact */
+            } catch (e) { applyCompact(true); }
+            if (compactBtn) compactBtn.addEventListener('click', function () { applyCompact(true); });
+            if (normalBtn) normalBtn.addEventListener('click', function () { applyCompact(false); });
+
+            /* ── 9. LIGHTBOX FOR SCREENSHOT IMAGES ── */
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+            var lightboxClose = document.getElementById('lightbox-close');
+
+            document.querySelectorAll('.screenshot img').forEach(function (img) {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function () {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt || '';
+                    /* find nearest fig-caption */
+                    var figCap = img.closest('.screenshot');
+                    var cap = figCap && figCap.nextElementSibling;
+                    lightboxCaption.textContent = (cap && cap.classList.contains('fig-caption')) ? cap.textContent : img.alt || '';
+                    lightbox.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                document.body.style.overflow = '';
+                lightboxImg.src = '';
+            }
+            if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+            /* ── 10. FADE-IN ON SCROLL ── */
+            var fadeObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -60px 0px', threshold: 0.05 });
+            document.querySelectorAll('.section-card').forEach(function (card) { fadeObserver.observe(card); });
+
+            /* ── 11. FULL-TEXT SEARCH ── */
+            var ftsInput = document.getElementById('fts-input');
+            var ftsCount = document.getElementById('fts-count');
+            /* cache the original HTML of each section body so we can restore it */
+            var sectionBodies = Array.from(document.querySelectorAll('.section-card'));
+            var originalHTML = sectionBodies.map(function (el) { return el.innerHTML; });
+
+            var ftsTimer = null;
+            function doSearch(query) {
+                /* restore originals first */
+                sectionBodies.forEach(function (el, i) { el.innerHTML = originalHTML[i]; });
+
+                /* re-inject collapse/print/copy buttons after restore */
+                reinjectFeatureButtons();
+
+                if (!query || query.length < 2) {
+                    ftsCount.textContent = '';
+                    sectionBodies.forEach(function (el) { el.style.display = ''; });
+                    return;
+                }
+
+                var re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                var totalMatches = 0;
+
+                sectionBodies.forEach(function (card) {
+                    var body = card.querySelector('.section-body');
+                    if (!body) return;
+                    var text = body.innerText;
+                    if (re.test(text)) {
+                        card.style.display = '';
+                        /* highlight matches in text nodes */
+                        highlightInNode(body, re);
+                        re.lastIndex = 0;
+                        totalMatches += (body.querySelectorAll('mark.fts-match').length);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                    re.lastIndex = 0;
+                });
+
+                ftsCount.textContent = totalMatches ? totalMatches + ' match' + (totalMatches === 1 ? '' : 'es') : 'No matches';
+            }
+
+            function highlightInNode(node, re) {
+                if (node.nodeType === 3) { /* text node */
+                    var val = node.nodeValue;
+                    re.lastIndex = 0;
+                    if (!re.test(val)) return;
+                    re.lastIndex = 0;
+                    var frag = document.createDocumentFragment();
+                    var last = 0, m;
+                    while ((m = re.exec(val)) !== null) {
+                        frag.appendChild(document.createTextNode(val.slice(last, m.index)));
+                        var mark = document.createElement('mark');
+                        mark.className = 'fts-match';
+                        mark.textContent = m[0];
+                        frag.appendChild(mark);
+                        last = m.index + m[0].length;
+                    }
+                    frag.appendChild(document.createTextNode(val.slice(last)));
+                    node.parentNode.replaceChild(frag, node);
+                } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'MARK'].includes(node.tagName)) {
+                    Array.from(node.childNodes).forEach(function (child) { highlightInNode(child, re); });
+                }
+            }
+
+            if (ftsInput) {
+                ftsInput.addEventListener('input', function () {
+                    clearTimeout(ftsTimer);
+                    ftsTimer = setTimeout(function () { doSearch(ftsInput.value.trim()); }, 220);
+                });
+                ftsInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') { ftsInput.value = ''; doSearch(''); ftsInput.blur(); }
+                });
+            }
+
+            /* ── Re-inject interactive buttons after FTS restores HTML ── */
+            function reinjectFeatureButtons() {
+                /* collapse buttons */
+                document.querySelectorAll('.section-card').forEach(function (card) {
+                    var head = card.querySelector('.section-head');
+                    var body = card.querySelector('.section-body');
+                    if (!head || !body) return;
+                    if (!head.querySelector('.collapse-btn')) {
+                        var btn = document.createElement('button');
+                        btn.className = 'collapse-btn';
+                        btn.setAttribute('aria-label', 'Collapse section');
+                        btn.innerHTML = '<span class="material-symbols-outlined">expand_less</span>';
+                        head.appendChild(btn);
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                        btn.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            var collapsed = card.classList.toggle('collapsed');
+                            btn.setAttribute('aria-label', collapsed ? 'Expand section' : 'Collapse section');
+                            body.style.maxHeight = collapsed ? '0px' : body.scrollHeight + 'px';
+                        });
+                    }
+                    if (!head.querySelector('.section-print-btn')) {
+                        var pbtn = document.createElement('button');
+                        pbtn.className = 'section-print-btn';
+                        pbtn.setAttribute('aria-label', 'Print this section');
+                        pbtn.innerHTML = '<span class="material-symbols-outlined">print</span>';
+                        head.appendChild(pbtn);
+                        pbtn.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            if (card.classList.contains('collapsed')) {
+                                card.classList.remove('collapsed');
+                                if (body) body.style.maxHeight = body.scrollHeight + 'px';
+                            }
+                            document.body.classList.add('printing-section');
+                            card.classList.add('print-target');
+                            window.print();
+                            document.body.classList.remove('printing-section');
+                            card.classList.remove('print-target');
+                        });
+                    }
+                });
+                /* copy-steps buttons */
+                document.querySelectorAll('ul.steps').forEach(function (ul) {
+                    if (ul.parentElement && ul.parentElement.classList.contains('steps-wrap')) return;
+                    var wrap = document.createElement('div');
+                    wrap.className = 'steps-wrap';
+                    ul.parentNode.insertBefore(wrap, ul);
+                    wrap.appendChild(ul);
+                    var btn = document.createElement('button');
+                    btn.className = 'copy-steps-btn';
+                    btn.setAttribute('aria-label', 'Copy steps');
+                    btn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>';
+                    wrap.appendChild(btn);
+                    btn.addEventListener('click', function () {
+                        var lines = Array.from(ul.querySelectorAll('li')).map(function (li, i) {
+                            var enSpan = li.querySelector('.lang-en');
+                            return (i + 1) + '. ' + (enSpan ? enSpan.textContent.trim() : li.textContent.trim());
+                        });
+                        navigator.clipboard.writeText(lines.join('\n')).then(function () {
+                            btn.innerHTML = '<span class="material-symbols-outlined">check</span>';
+                            setTimeout(function () { btn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>'; }, 1800);
+                        }).catch(function () { });
+                    });
+                });
+                /* re-attach lightbox to new img elements */
+                document.querySelectorAll('.screenshot img').forEach(function (img) {
+                    if (img.dataset.lightboxBound) return;
+                    img.dataset.lightboxBound = '1';
+                    img.style.cursor = 'zoom-in';
+                    img.addEventListener('click', function () {
+                        lightboxImg.src = img.src;
+                        lightboxImg.alt = img.alt || '';
+                        var figCap = img.closest('.screenshot');
+                        var cap = figCap && figCap.nextElementSibling;
+                        lightboxCaption.textContent = (cap && cap.classList.contains('fig-caption')) ? cap.textContent : img.alt || '';
+                        lightbox.classList.add('open');
+                        document.body.style.overflow = 'hidden';
+                    });
+                });
+            }
+
+        })();
+    </script>
+</body>
+
+</html>
