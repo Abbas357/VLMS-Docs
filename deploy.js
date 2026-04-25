@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const htmlPath = path.join(__dirname, 'dev.html');
+const htmlPath = path.join(__dirname, 'main.html');
 const baseDir = path.dirname(htmlPath);
 const outPath = path.join(__dirname, 'index.html');
 
