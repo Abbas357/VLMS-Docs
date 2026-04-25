@@ -580,16 +580,20 @@ body {
 .screenshot {
     width: 100%;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
     margin: 1rem 0 .4rem;
     background: #f8fafc;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    min-height: 120px;
 }
 
 .screenshot img {
     width: 100%;
     height: auto;
+    min-height: 120px;
     display: block;
+    border-radius: 10px;
+    object-fit: contain;
 }
 
 .screenshot-ph {
@@ -726,9 +730,9 @@ body {
 
 /* ─── REPORT CARDS ─── */
 .report-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: .7rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
     margin: .75rem 0;
 }
 
@@ -736,26 +740,51 @@ body {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: .8rem;
-    text-align: center;
+    padding: .85rem 1rem;
     font-size: .78rem;
     font-weight: 600;
     color: var(--primary);
-    transition: all .15s;
+    transition: all .18s;
     cursor: default;
-}
-
-.report-card:hover {
-    background: var(--primary-xlight);
-    border-color: #c7d7f0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(26, 60, 110, .12);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: .85rem;
 }
 
 .report-card .material-symbols-outlined {
     display: block;
     font-size: 1.6rem;
+    flex-shrink: 0;
+    margin-top: .1rem;
+}
+
+.report-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.report-card-title {
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--primary);
     margin-bottom: .3rem;
+    line-height: 1.3;
+}
+
+.report-card-desc {
+    font-size: .71rem;
+    font-weight: 400;
+    color: var(--text-muted, #6b7a99);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.report-card:hover {
+    background: var(--primary-xlight);
+    border-color: #c7d7f0;
+    transform: translateX(3px);
+    box-shadow: 0 4px 14px rgba(26, 60, 110, .11);
 }
 
 /* ─── FOOTER ─── */
@@ -1007,7 +1036,7 @@ body.urdu-mode .hero {
 }
 
 body.urdu-mode .hero-inner {
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
 body.urdu-mode .hero-text {
@@ -1149,6 +1178,17 @@ body.urdu-mode .sub-head {
     .bar-sep {
         display: none;
     }
+    .section-title {
+        font-size: 1rem !important;
+    }
+
+    .section-subtitle {
+        font-size: .8rem !important;
+    }
+
+    .fig-caption {
+        font-size: .85rem !important;
+    }
 }
 
 .lang-switcher-bar .ls-label {
@@ -1283,6 +1323,14 @@ body.dark-mode .report-card:hover {
     background: var(--primary-xlight);
 }
 
+body.dark-mode .report-card-title {
+    color: var(--primary-light);
+}
+
+body.dark-mode .report-card-desc {
+    color: #8a9ab8;
+}
+
 body.dark-mode .lang-switcher-bar {
     background: #1a2535;
     border-color: var(--border);
@@ -1334,15 +1382,6 @@ body.dark-mode .copy-steps-btn {
     color: var(--text-muted);
 }
 
-body.dark-mode .section-print-btn {
-    border-color: var(--border);
-    color: var(--text-muted);
-}
-
-body.dark-mode .section-print-btn:hover {
-    background: var(--primary-xlight);
-    color: var(--primary-light);
-}
 
 /* ─── PROGRESS BAR ─── */
 #progress-bar {
@@ -1549,38 +1588,6 @@ body.dark-mode mark.fts-match {
 }
 
 /* ─── COLLAPSIBLE SECTIONS ─── */
-.section-head {
-    position: relative;
-}
-
-.collapse-btn {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: none;
-    background: var(--bg);
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform .3s, background .2s;
-    flex-shrink: 0;
-}
-
-.collapse-btn .material-symbols-outlined {
-    font-size: .95rem;
-    transition: transform .3s;
-}
-
-.collapse-btn:hover {
-    background: var(--border);
-}
-
-.section-card.collapsed .collapse-btn .material-symbols-outlined {
-    transform: rotate(-90deg);
-}
-
 .section-body {
     overflow: hidden;
     transition: max-height .38s cubic-bezier(.4, 0, .2, 1), opacity .3s, padding .3s;
@@ -1593,33 +1600,6 @@ body.dark-mode mark.fts-match {
     padding-bottom: 0 !important;
 }
 
-/* ─── SECTION PRINT BUTTON ─── */
-.section-print-btn {
-    display: flex;
-    align-items: center;
-    gap: .25rem;
-    padding: .22rem .6rem;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-muted);
-    font-size: .68rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all .2s;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.section-print-btn .material-symbols-outlined {
-    font-size: .8rem;
-}
-
-.section-print-btn:hover {
-    background: var(--primary-xlight);
-    color: var(--primary);
-    border-color: var(--primary-light);
-}
 
 /* ─── COPY STEPS BUTTON ─── */
 .steps-wrap {
@@ -1752,7 +1732,7 @@ html.compact-mode .section-title {
 
 html.compact-mode .section-subtitle {
     font-size: 1rem;
-    margin-top: 0;
+    margin-top: -10px !important;
 }
 
 html.compact-mode .section-num {
@@ -1811,6 +1791,11 @@ html.compact-mode .note .material-symbols-outlined {
 html.compact-mode .screenshot {
     margin: .3rem 0 .2rem;
     border-radius: 6px;
+    min-height: 80px;
+}
+
+html.compact-mode .screenshot img {
+    min-height: 80px;
 }
 
 html.compact-mode .fig-caption {
@@ -1845,13 +1830,23 @@ html.compact-mode .report-grid {
 }
 
 html.compact-mode .report-card {
-    padding: .35rem;
-    border-radius: 6px;
+    padding: .5rem .65rem;
+    gap: .6rem;
+    border-radius: 7px;
 }
 
 html.compact-mode .report-card .material-symbols-outlined {
+    font-size: 1.2rem;
+}
+
+html.compact-mode .report-card-title {
     font-size: 1.1rem;
-    margin-bottom: .1rem;
+    margin-bottom: .2rem;
+}
+
+html.compact-mode .report-card-desc {
+    font-size: .9rem;
+    line-height: 1.4;
 }
 
 html.compact-mode .app-download {
@@ -1902,8 +1897,6 @@ html.compact-mode .page-footer {
     #lightbox,
     #scrollTop,
     .lang-switcher-bar,
-    .section-print-btn,
-    .collapse-btn,
     .copy-steps-btn {
         display: none !important;
     }
