@@ -23,7 +23,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-size:22px;
+    font-size: 22px;
 }
 
 body {
@@ -1109,18 +1109,46 @@ body.urdu-mode .sub-head {
 }
 
 .lang-switcher-bar {
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: .5rem;
     padding: .55rem 2rem;
     border-bottom: 1px solid var(--border);
     background: var(--surface);
     font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
     margin: 0 auto;
     border-radius: 50px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .lang-switcher-bar {
+        border-radius: 16px;
+        padding: .3rem .6rem !important;
+        gap: .3rem !important;
+        font-size: .68rem !important;
+    }
+    .lang-btn {
+        padding: .15rem .5rem !important;
+        font-size: .55rem !important;
+    }
+    .fts-wrap {
+        flex: 1 1 100%;
+        max-width: 100%;
+        order: 10;
+    }
+    .lang-switcher-bar .ls-label {
+        display: none;
+    }
+    .bar-sep {
+        display: none;
+    }
 }
 
 .lang-switcher-bar .ls-label {
@@ -1655,7 +1683,7 @@ body.dark-mode mark.fts-match {
 }
 
 /* ─── COMPACT MODE ─── */
-html.compact-mode{}
+html.compact-mode {}
 
 html.compact-mode .hero {
     padding: .2rem 1.5rem;
@@ -1958,5 +1986,145 @@ html.compact-mode .page-footer {
     a {
         color: #000 !important;
         text-decoration: underline;
+    }
+}
+
+.guide-tabs-wrap {
+    display: flex;
+    justify-content: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.guide-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .65rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    border: 2px solid rgba(255, 255, 255, .35);
+    border-radius: .6rem;
+    background: rgba(255, 255, 255, .12);
+    color: rgba(255, 255, 255, .75);
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s, transform .15s;
+    letter-spacing: .01em;
+}
+
+.guide-tab:hover {
+    background: rgba(255, 255, 255, .22);
+    color: #fff;
+    border-color: rgba(255, 255, 255, .6);
+}
+
+.guide-tab.active {
+    background: #fff;
+    color: #1d4ed8;
+    border-color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .18);
+}
+
+.guide-tab .material-symbols-outlined {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+    .guide-tabs-wrap {
+        gap: .5rem !important;
+    }
+    .guide-tab {
+        font-size: .6rem !important;
+        padding: .2rem .6rem !important;
+    }
+    .guide-tab .material-symbols-outlined {
+        font-size: 1rem;
+    }
+}
+
+/* Step items that contain a nested list: stack vertically */
+.steps li:has(ul) {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Nested bullet lists inside step items */
+.steps li ul {
+    list-style: disc;
+    margin: .35rem 0 .1rem 1.3rem;
+    padding: 0;
+    text-align: start;
+    width: 100%;
+}
+
+.steps li ul li {
+    display: list-item;
+    padding: .1rem 0;
+    border-bottom: none;
+    font-size: .92rem;
+    color: #374151;
+    gap: 0;
+    text-align: start;
+}
+
+/* Shared nav-toggle styles for both guides */
+#nav-toggle,
+#officer-nav-toggle {
+    display: none;
+    align-items: center;
+    gap: .4rem;
+    background: #3b599866;
+    backdrop-filter: blur(6px);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: .5rem 1rem;
+    font-size: .88rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: .75rem;
+    font-family: Inter, system-ui, sans-serif;
+    transition: box-shadow .2s;
+}
+
+#nav-toggle .material-symbols-outlined,
+#officer-nav-toggle .material-symbols-outlined {
+    font-size: 1.1rem;
+}
+
+#nav-toggle.open,
+#officer-nav-toggle.open {
+    background: var(--primary-light);
+}
+
+@media (max-width: 900px) {
+
+    #nav-toggle,
+    #officer-nav-toggle {
+        display: flex;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 3000;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+        margin-bottom: 0;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .sidebar.open {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        z-index: 2000;
+        overflow-y: auto;
+        flex-direction: column;
     }
 }
