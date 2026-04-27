@@ -7,17 +7,232 @@
     <title>KP Vehicle Lifecycle Management System – User Manual</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link id="urdu-font-link" rel="stylesheet" href=""
-        data-href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link id="urdu-font-link" rel="stylesheet" href="" data-href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="assets/style.min.css?v=2026.04.25">
 </head>
 
 <body>
+    <!-- Loading skeleton overlay -->
+    <div id="page-loader">
+        <!-- Hero -->
+        <div class="sk-hero">
+            <div class="sk-hero-inner">
+                <div class="sk-block sk-badge"></div>
+                <div class="sk-block sk-h1"></div>
+                <div class="sk-block sk-readtime"></div>
+                <!-- Two tab buttons -->
+                <div class="sk-tabs">
+                    <div class="sk-block sk-tab-btn"></div>
+                    <div class="sk-block sk-tab-btn"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Lang switcher bar -->
+        <div class="sk-bar">
+            <div class="sk-bar-inner">
+                <div class="sk-block sk-bar-pill"></div>
+                <div class="sk-block sk-bar-pill sk-bar-pill--wide"></div>
+                <div class="sk-block sk-bar-pill"></div>
+                <div class="sk-block sk-bar-search"></div>
+                <div class="sk-block sk-bar-pill sk-bar-pill--wide"></div>
+                <div class="sk-block sk-bar-pill"></div>
+                <div class="sk-block sk-bar-icon"></div>
+            </div>
+        </div>
+        <!-- Page wrap (sidebar + main) -->
+        <div class="sk-page-wrap">
+            <div class="sk-page-inner">
+                <!-- Sidebar -->
+                <div class="sk-sidebar">
+                    <div class="sk-sidebar-head"></div>
+                    <div class="sk-sidebar-search"></div>
+                    <div class="sk-nav-list">
+                        <div class="sk-block sk-nav-item"></div>
+                        <div class="sk-block sk-nav-item"></div>
+                        <div class="sk-block sk-nav-item"></div>
+                        <div class="sk-block sk-nav-item"></div>
+                        <div class="sk-block sk-nav-item"></div>
+                        <div class="sk-block sk-nav-item"></div>
+                        <div class="sk-block sk-nav-item"></div>
+                        <div class="sk-block sk-nav-item"></div>
+                    </div>
+                </div>
+                <!-- Main content -->
+                <div class="sk-main">
+                    <div class="sk-block sk-section-title"></div>
+                    <div class="sk-block sk-sub"></div>
+                    <div class="sk-block sk-text"></div>
+                    <div class="sk-block sk-text sk-text--short"></div>
+                    <div class="sk-block sk-img"></div>
+                    <div class="sk-block sk-text"></div>
+                    <div class="sk-block sk-text sk-text--short"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* ── Loader shell ── */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #eef1f7;
+            overflow-y: auto;
+        }
+        body.dark-mode #page-loader { background: #0f172a; }
+
+        /* ── Shimmer base ── */
+        .sk-block {
+            border-radius: 6px;
+            background-size: 400% 100%;
+            animation: sk-shimmer 1.5s infinite linear;
+        }
+        /* on dark hero */
+        .sk-hero .sk-block {
+            background-image: linear-gradient(90deg,
+                rgba(255,255,255,.10) 25%,
+                rgba(255,255,255,.26) 50%,
+                rgba(255,255,255,.10) 75%);
+        }
+        /* on light bar / body */
+        .sk-bar .sk-block,
+        .sk-page-wrap .sk-block {
+            background-image: linear-gradient(90deg,
+                #cdd5e0 25%, #e4eaf3 50%, #cdd5e0 75%);
+        }
+        body.dark-mode .sk-bar .sk-block,
+        body.dark-mode .sk-page-wrap .sk-block {
+            background-image: linear-gradient(90deg,
+                #1e293b 25%, #263347 50%, #1e293b 75%);
+        }
+        @keyframes sk-shimmer {
+            0%   { background-position: 100% 0; }
+            100% { background-position: -300% 0; }
+        }
+
+        /* ── Hero ── */
+        .sk-hero {
+            background: linear-gradient(160deg, #2c4a8c 0%, #3d6bbf 100%);
+            padding: 0.3rem 1.2rem .3rem
+        }
+        .sk-hero-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .sk-badge    { height: 25px; width: 130px; border-radius: 20px; }
+        .sk-h1       { height: 35px; width: 60%; max-width: 700px; }
+        .sk-readtime { height: 20px; width: 160px; border-radius: 20px; }
+        .sk-tabs     { display: flex; gap: 1rem; margin-top: .4rem; }
+        .sk-tab-btn  { height: 60px; width: 300px; border-radius: 10px; }
+
+        /* ── Lang-switcher bar ── */
+        .sk-bar {
+            background: #fff;
+            border-bottom: 1px solid #dde3ef;
+            padding: .6rem 1.5rem;
+        }
+        body.dark-mode .sk-bar { background: #1e293b; border-color: #334155; }
+        .sk-bar-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+        }
+        .sk-bar-pill        { height: 32px; width: 68px;  border-radius: 20px; }
+        .sk-bar-pill--wide  { width: 90px; }
+        .sk-bar-search      { height: 32px; width: 200px; border-radius: 20px; margin: 0 auto; }
+        .sk-bar-icon        { height: 32px; width: 32px;  border-radius: 50%; margin-left: auto; }
+
+        /* ── Page wrap ── */
+        .sk-page-wrap {
+            padding: 1.5rem 1.5rem;
+        }
+        .sk-page-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        /* ── Sidebar ── */
+        .sk-sidebar {
+            flex: 0 0 290px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #dde3ef;
+        }
+        body.dark-mode .sk-sidebar { border-color: #334155; }
+        .sk-sidebar-head {
+            height: 52px;
+            background: linear-gradient(90deg, #2c4a8c 60%, #3d6bbf 100%);
+        }
+        .sk-sidebar-search {
+            height: 38px;
+            margin: .75rem;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #cdd5e0 25%, #e4eaf3 50%, #cdd5e0 75%);
+            background-size: 400% 100%;
+            animation: sk-shimmer 1.5s infinite linear;
+        }
+        body.dark-mode .sk-sidebar-search {
+            background-image: linear-gradient(90deg, #1e293b 25%, #263347 50%, #1e293b 75%);
+        }
+        .sk-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 0 .75rem .75rem;
+        }
+        .sk-nav-item { height: 40px; margin-top: .5rem; }
+
+        /* ── Main ── */
+        .sk-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: .9rem;
+            min-width: 0;
+        }
+        .sk-section-title { height: 32px; width: 52%; }
+        .sk-sub           { height: 15px; width: 70%; }
+        .sk-text          { height: 13px; width: 100%; }
+        .sk-text--short   { width: 68%; }
+        .sk-img           { height: 380px; width: 100%; border-radius: 8px; }
+
+        /* ── Fade out ── */
+        #page-loader.loader-hide {
+            animation: loader-fade .4s ease forwards;
+            pointer-events: none;
+        }
+        @keyframes loader-fade { to { opacity: 0; } }
+    </style>
+    <script>
+        (function () {
+            var loader = document.getElementById('page-loader');
+            function dismiss() {
+                loader.classList.add('loader-hide');
+                loader.addEventListener('animationend', function () {
+                    loader.remove();
+                }, { once: true });
+            }
+            Promise.all([
+                document.fonts.ready,
+                new Promise(function (res) {
+                    if (document.readyState === 'complete') res();
+                    else window.addEventListener('load', res, { once: true });
+                })
+            ]).then(dismiss);
+        })();
+    </script>
+
     <div id="progress-bar"></div>
     <header class="hero">
         <div class="hero-inner">
@@ -1285,8 +1500,7 @@
                     </div>
 
                     <div class="screenshot">
-                        <img src="assets/images/image028.png" alt="Reports Center" onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 10.1: Reports 
-                                &amp; Audit Center</span></div>'">
+                        <img src="assets/images/image028.png" alt="Reports Center" onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 10.1: Reports &amp; Audit Center</span></div>'">
                     </div>
                     <p class="fig-caption">Reports &amp; Audit Center</p>
                 </div>
