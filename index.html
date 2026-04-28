@@ -11,6 +11,7 @@
     <link id="urdu-font-link" rel="stylesheet" href="" data-href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="assets/style.min.css?v=2026.04.25">
+    <link rel="preload" as="image" href="assets/images/image001.jpg">
 </head>
 
 <body>
@@ -226,8 +227,8 @@
             Promise.all([
                 document.fonts.ready,
                 new Promise(function (res) {
-                    if (document.readyState === 'complete') res();
-                    else window.addEventListener('load', res, { once: true });
+                    if (document.readyState !== 'loading') res();
+                    else document.addEventListener('DOMContentLoaded', res, { once: true });
                 })
             ]).then(dismiss);
         })();
@@ -392,13 +393,9 @@
                 </ul>
             </div>
         </aside>
-
-
         <main class="content">
-
-
             <div class="content-logo screenshot">
-                <img src="assets/images/image001.png" alt="KP VLMS Logo" onerror="this.style.display='none'">
+                <img src="assets/images/image001.jpg" alt="KP VLMS Logo" fetchpriority="high" onerror="this.style.display='none'">
             </div>
 
             <div class="section-card" id="sec-login">
@@ -427,8 +424,8 @@
                     </div>
 
                     <div class="screenshot">
-                        <img src="assets/images/image002.png" alt="Login Screen"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1: Login Screen</span></div>'">
+                        <img src="assets/images/image002.jpg" alt="Login Screen"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1: Login Screen</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Login Screen</p>
                 </div>
@@ -454,8 +451,8 @@
                             <strong>VLMS</strong> منتخب کریں۔</span></p>
 
                     <div class="screenshot">
-                        <img src="assets/images/image003.png" alt="Home Screen"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.2: Home Screen</span></div>'">
+                        <img src="assets/images/image003.jpg" alt="Home Screen"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.2: Home Screen</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Home Screen</p>
                 </div>
@@ -509,8 +506,8 @@
                     </div>
 
                     <div class="screenshot">
-                        <img src="assets/images/image004.png" alt="Main Dashboard"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.3: Main Dashboard</span></div>'">
+                        <img src="assets/images/image004.jpg" alt="Main Dashboard"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.3: Main Dashboard</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Main Dashboard</p>
 
@@ -523,8 +520,8 @@
                             رجسٹرڈ ملازمین اور گاڑیوں کی تازہ ترین تاریخ (مرمت، الاٹمنٹ وغیرہ)۔</span></p>
 
                     <div class="screenshot">
-                        <img src="assets/images/image005.png" alt="Lower Dashboard"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.4: Lower Dashboard</span></div>'">
+                        <img src="assets/images/image005.jpg" alt="Lower Dashboard"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.4: Lower Dashboard</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Lower half of the Main Dashboard</p>
                 </div>
@@ -600,14 +597,14 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image006.png" alt="Procurement List"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1.1: List of Procurements</span></div>'">
+                                <img src="assets/images/image006.jpg" alt="Procurement List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1.1: List of Procurements</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">List of Procurements</p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image007.png" alt="Add Fresh Procurement"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1.2: Add Fresh Procurement</span></div>'">
+                                <img src="assets/images/image007.jpg" alt="Add Fresh Procurement"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 1.1.2: Add Fresh Procurement</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Add Fresh Procurement</p>
                         </div>
@@ -690,14 +687,14 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image008.png" alt="Employee List"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>List of Employees</span></div>'">
+                                <img src="assets/images/image008.jpg" alt="Employee List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>List of Employees</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">List of Employees</p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image009.png" alt="Adding Employee"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Adding New Employee</span></div>'">
+                                <img src="assets/images/image009.jpg" alt="Adding Employee"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Adding New Employee</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Adding New Employee</p>
                         </div>
@@ -741,8 +738,8 @@
                                     لگانے کے بعد <strong>Apply</strong> پر کلک کریں۔</span></p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image010.png" alt="Vehicle List"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 3.1.1: List of Vehicles</span></div>'">
+                                <img src="assets/images/image010.jpg" alt="Vehicle List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 3.1.1: List of Vehicles</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">List of Vehicles</p>
                         </div>
@@ -792,8 +789,8 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image011.png" alt="Add Vehicle"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 3.1.2: Adding Vehicle Details</span></div>'">
+                                <img src="assets/images/image011.jpg" alt="Add Vehicle"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 3.1.2: Adding Vehicle Details</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Adding Vehicle Details</p>
                         </div>
@@ -842,8 +839,8 @@
                                     <strong>حالت</strong> شامل ہیں۔</span></p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image012.png" alt="Allotment List"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 4.1.1: Allotment List</span></div>'">
+                                <img src="assets/images/image012.jpg" alt="Allotment List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 4.1.1: Allotment List</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Allotment List</p>
                         </div>
@@ -894,8 +891,8 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image013.png" alt="Create Allotment"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 4.1.2: Create Allotment</span></div>'">
+                                <img src="assets/images/image013.jpg" alt="Create Allotment"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 4.1.2: Create Allotment</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Create Allotment Form</p>
                         </div>
@@ -925,20 +922,20 @@
                     <div class="phone-row" style="margin-top:1rem">
                         <div>
                             <div class="screenshot">
-                                <img src="assets/images/image014.png" alt="Play Store"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\' style=\'min-height:120px\'><span class=\'material-symbols-outlined\'>android</span><span>Fig 4.1.3: KP Smart District Workspace on Play Store</span></div>'">
+                                <img src="assets/images/image014.jpg" alt="Play Store"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\' style=\'min-height:120px\'><span class=\'material-symbols-outlined\'>android</span><span>Fig 4.1.3: KP Smart District Workspace on Play Store</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">KP Smart District Workspace on Play Store</p>
                         </div>
                     </div>
                     <div class="phone-row">
                         <div class="phone-frame">
-                            <img src="assets/images/image015.png" alt="App Screen 1"
-                                onerror="this.style.display='none'">
+                            <img src="assets/images/image015.jpg" alt="App Screen 1"
+                                onerror="this.style.display='none'" loading="lazy">
                         </div>
                         <div class="phone-frame">
-                            <img src="assets/images/image016.png" alt="App Screen 2"
-                                onerror="this.style.display='none'">
+                            <img src="assets/images/image016.jpg" alt="App Screen 2"
+                                onerror="this.style.display='none'" loading="lazy">
                         </div>
                     </div>
                     <p class="fig-caption">Smart District Workspace Mobile App</p>
@@ -987,8 +984,8 @@
                     </ul>
 
                     <div class="screenshot">
-                        <img src="assets/images/image017.png" alt="Transfer List"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 5.1: Vehicle Transfer List</span></div>'">
+                        <img src="assets/images/image017.jpg" alt="Transfer List"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 5.1: Vehicle Transfer List</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Vehicle Transfer List</p>
 
@@ -1027,8 +1024,8 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image018.png" alt="Transfer Form"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 5.2: Transfer Vehicle Form</span></div>'">
+                                <img src="assets/images/image018.jpg" alt="Transfer Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 5.2: Transfer Vehicle Form</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Transfer Vehicle Form</p>
                         </div>
@@ -1074,8 +1071,8 @@
                                     کریں۔</span></p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image019.png" alt="Inspection List"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 6.1.1: Vehicle Inspections</span></div>'">
+                                <img src="assets/images/image019.jpg" alt="Inspection List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 6.1.1: Vehicle Inspections</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Vehicle Inspections</p>
                         </div>
@@ -1128,8 +1125,8 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image020.png" alt="Inspection Form"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 6.1.2: New Vehicle Inspection Form</span></div>'">
+                                <img src="assets/images/image020.jpg" alt="Inspection Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 6.1.2: New Vehicle Inspection Form</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">New Vehicle Inspection Form</p>
                         </div>
@@ -1187,8 +1184,8 @@
                                     ریکارڈ ہٹانے کے لیے۔</span></p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image021.png" alt="Maintenance Records"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 7.1.1: Maintenance Records List</span></div>'">
+                                <img src="assets/images/image021.jpg" alt="Maintenance Records"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 7.1.1: Maintenance Records List</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Maintenance Records List</p>
                         </div>
@@ -1244,8 +1241,8 @@
                             </div>
 
                             <div class="screenshot">
-                                <img src="assets/images/image022.png" alt="Maintenance Form"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 7.1.2: Fresh Maintenance Form</span></div>'">
+                                <img src="assets/images/image022.jpg" alt="Maintenance Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 7.1.2: Fresh Maintenance Form</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Fresh Maintenance Form</p>
                         </div>
@@ -1292,8 +1289,8 @@
                             </p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image023.png" alt="Condemnation List"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 8.1.1: Vehicle Condemnation List</span></div>'">
+                                <img src="assets/images/image023.jpg" alt="Condemnation List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 8.1.1: Vehicle Condemnation List</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Vehicle Condemnation List</p>
                         </div>
@@ -1342,8 +1339,8 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image024.png" alt="Condemnation Form"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 8.1.2: Vehicle Condemnation Request Form</span></div>'">
+                                <img src="assets/images/image024.jpg" alt="Condemnation Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 8.1.2: Vehicle Condemnation Request Form</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Vehicle Condemnation Request Form</p>
                         </div>
@@ -1374,8 +1371,8 @@
                                 Book)</strong> آپشن استعمال کریں۔</span></p>
 
                     <div class="screenshot">
-                        <img src="assets/images/image026.png" alt="Usage Log"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 9.1: Usage Log (Mobile App)</span></div>'">
+                        <img src="assets/images/image026.jpg" alt="Usage Log"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 9.1: Usage Log (Mobile App)</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Usage Log (Mobile App)</p>
 
@@ -1392,8 +1389,8 @@
                                     سے گاڑیوں کے استعمال لاگ دیکھ اور تلاش کر سکتا ہے۔</span></p>
 
                             <div class="screenshot">
-                                <img src="assets/images/image027.png" alt="Usage Log List"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 9.2: Vehicle Usage Log List</span></div>'">
+                                <img src="assets/images/image027.jpg" alt="Usage Log List"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 9.2: Vehicle Usage Log List</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Vehicle Usage Log List</p>
                         </div>
@@ -1500,7 +1497,7 @@
                     </div>
 
                     <div class="screenshot">
-                        <img src="assets/images/image028.png" alt="Reports Center" onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 10.1: Reports &amp; Audit Center</span></div>'">
+                        <img src="assets/images/image028.jpg" alt="Reports Center" onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 10.1: Reports &amp; Audit Center</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Reports &amp; Audit Center</p>
                 </div>
@@ -1539,8 +1536,8 @@
                     </ul>
 
                     <div class="screenshot">
-                        <img src="assets/images/image031.png" alt="Accident List"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 13.1: Accident Vehicle List</span></div>'">
+                        <img src="assets/images/image031.jpg" alt="Accident List"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 13.1: Accident Vehicle List</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Accident Vehicle List</p>
 
@@ -1581,8 +1578,8 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image032.png" alt="Add Accident Form"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 13.1.1: Add Accident Vehicle Form</span></div>'">
+                                <img src="assets/images/image032.jpg" alt="Add Accident Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 13.1.1: Add Accident Vehicle Form</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Add Accident Vehicle Form</p>
                         </div>
@@ -1615,8 +1612,8 @@
                     </ul>
 
                     <div class="screenshot">
-                        <img src="assets/images/image033.png" alt="Theft List"
-                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 14.1: Stolen/Theft Vehicle List</span></div>'">
+                        <img src="assets/images/image033.jpg" alt="Theft List"
+                            onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 14.1: Stolen/Theft Vehicle List</span></div>'" loading="lazy">
                     </div>
                     <p class="fig-caption">Stolen/Theft Vehicle List</p>
 
@@ -1662,8 +1659,8 @@
                             </ul>
 
                             <div class="screenshot">
-                                <img src="assets/images/image034.png" alt="Theft Form"
-                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 14.2: Add Stolen/Theft Vehicle Form</span></div>'">
+                                <img src="assets/images/image034.jpg" alt="Theft Form"
+                                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Fig 14.2: Add Stolen/Theft Vehicle Form</span></div>'" loading="lazy">
                             </div>
                             <p class="fig-caption">Add Stolen/Theft Vehicle Form</p>
                         </div>
@@ -1950,7 +1947,7 @@
                                     یا ایپ اسٹور (آئی فون)</strong> سے ڈاؤن لوڈ کریں</span></li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-1.png" alt="Download the app"
+                        <img src="assets/images/image-sdw-1.jpg" alt="Download the app"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Download the app</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Download the app</span><span class="lang-ur">ایپ ڈاؤن
@@ -1982,7 +1979,7 @@
                                 گی۔</span></li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-2.png" alt="Login screen"
+                        <img src="assets/images/image-sdw-2.jpg" alt="Login screen"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Login screen</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Login screen</span><span class="lang-ur">لاگ ان
@@ -2026,7 +2023,7 @@
                         </li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-3.png" alt="Dashboard"
+                        <img src="assets/images/image-sdw-3.jpg" alt="Dashboard"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Dashboard</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Dashboard</span><span class="lang-ur">ڈیش بورڈ</span>
@@ -2055,7 +2052,7 @@
                                 class="lang-ur">آپ کی مختص گاڑی (گاڑیوں) کی تفصیلات ظاہر ہوں گی۔</span></li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-4.png" alt="Vehicle details"
+                        <img src="assets/images/image-sdw-4.jpg" alt="Vehicle details"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Vehicle details</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Vehicle details</span><span class="lang-ur">گاڑی کی
@@ -2107,7 +2104,7 @@
                                 class="lang-ur">الاٹمنٹ درخواست بھیجنے کے لیے فارم جمع کریں۔</span></li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-5.png" alt="Allotment request form"
+                        <img src="assets/images/image-sdw-5.jpg" alt="Allotment request form"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Allotment request form</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Allotment request form</span><span
@@ -2150,7 +2147,7 @@
                                 class="lang-ur">منتقلی یا واپسی کی درخواست بھیجنے کے لیے فارم جمع کریں۔</span></li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-6.png" alt="Transfer request form"
+                        <img src="assets/images/image-sdw-6.jpg" alt="Transfer request form"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Transfer request form</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Transfer request form</span><span
@@ -2206,7 +2203,7 @@
                                 class="lang-ur">اپنی ای-لاگ بک اپ ڈیٹ کرنے کے لیے اندراج محفوظ کریں۔</span></li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-7.png" alt="Usage log summary screen"
+                        <img src="assets/images/image-sdw-7.jpg" alt="Usage log summary screen"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Usage log summary screen</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Usage log summary screen</span><span
@@ -2319,7 +2316,7 @@
                     </div>
                 </div>
                 <div class="screenshot">
-                    <img src="assets/images/image-sdw-9.png" alt="Repair Request"
+                    <img src="assets/images/image-sdw-9.jpg" alt="Repair Request"
                         onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Usage log summary screen</span></div>'">
                 </div>
                 <p class="fig-caption"><span class="lang-en">Repair Request</span><span class="lang-ur">ٹیسٹ کی
@@ -2349,7 +2346,7 @@
                                 الاٹمنٹ، منتقلی اور واپسی کی درخواستوں کی موجودہ حیثیت دیکھ سکتے ہیں۔</span></li>
                     </ul>
                     <div class="screenshot">
-                        <img src="assets/images/image-sdw-8.png" alt="Submitted requests status screen"
+                        <img src="assets/images/image-sdw-8.jpg" alt="Submitted requests status screen"
                             onerror="this.parentElement.innerHTML='<div class=\'screenshot-ph\'><span class=\'material-symbols-outlined\'>image</span><span>Submitted requests status screen</span></div>'">
                     </div>
                     <p class="fig-caption"><span class="lang-en">Submitted requests status screen</span><span
@@ -2483,7 +2480,11 @@
             /* ── 5. INIT SECTION MAX-HEIGHT ── */
             document.querySelectorAll('.section-card').forEach(function (card) {
                 var body = card.querySelector('.section-body');
-                if (body) body.style.maxHeight = body.scrollHeight + 'px';
+                if (!body) return;
+                // Skip cards inside a hidden guide wrap — scrollHeight is 0 when display:none
+                var wrap = card.closest('[id$="-guide-wrap"]');
+                if (wrap && wrap.style.display === 'none') return;
+                body.style.maxHeight = body.scrollHeight + 'px';
             });
 
             /* ── 6. COPY-TO-CLIPBOARD ON STEP LISTS ── */
@@ -2766,10 +2767,24 @@
                     var body = card.querySelector('.section-body');
                     if (!body) return;
                     if (!card.classList.contains('collapsed')) {
-                        body.style.maxHeight = body.scrollHeight + 'px';
+                        // Use 'none' so the body is never clipped regardless of when images load
+                        body.style.maxHeight = 'none';
                     }
                 });
             }
+
+            // Re-expand any section whose max-height was set before its images loaded
+            offWrap.querySelectorAll('img').forEach(function (img) {
+                if (!img.complete) {
+                    img.addEventListener('load', function () {
+                        var card = img.closest('.section-card');
+                        if (card && !card.classList.contains('collapsed')) {
+                            var body = card.querySelector('.section-body');
+                            if (body) body.style.maxHeight = 'none';
+                        }
+                    }, { once: true });
+                }
+            });
 
             function showGuide(which) {
                 if (which === 'officer') {
@@ -2777,7 +2792,13 @@
                     offWrap.style.display = '';
                     tabDept.classList.remove('active');
                     tabOfficer.classList.add('active');
-                    recalcOfficerMaxHeight();
+                    // Wake IntersectionObserver for lazy images that were in a hidden container,
+                    // then recalc max-height after images have their real dimensions.
+                    window.dispatchEvent(new Event('scroll'));
+                    requestAnimationFrame(function () {
+                        recalcOfficerMaxHeight();
+                        window.dispatchEvent(new Event('scroll'));
+                    });
                 } else {
                     offWrap.style.display = 'none';
                     deptWrap.style.display = '';
