@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const htmlPath = path.join(__dirname, 'main.html');
+const htmlPath = path.join(__dirname, 'index.html');
 const baseDir = path.dirname(htmlPath);
-const outPath = path.join(__dirname, 'index.html');
+const outPath = path.join(__dirname, 'index.prod.html');
 
 let html = fs.readFileSync(htmlPath, 'utf8');
 
@@ -28,7 +28,7 @@ html = html.replace(/src="([^"]+\.(png|jpg|jpeg|gif|webp|svg))"/gi, (match, imgP
 });
 
 // ── 2. Inline CSS — replace <link> stylesheet tag with <style> block ─────────
-html = html.replace(/<link[^>]+href="([^"]+\.css)"[^>]*>/gi, (match, cssPath) => {
+html = html.replace(/<link[^>]+href="([^"?]+\.css)[^"]*"[^>]*>/gi, (match, cssPath) => {
     const absPath = path.resolve(baseDir, cssPath);
     if (!fs.existsSync(absPath)) {
         console.warn('CSS not found, skipping:', absPath);
@@ -40,6 +40,6 @@ html = html.replace(/<link[^>]+href="([^"]+\.css)"[^>]*>/gi, (match, cssPath) =>
     return `<style>\n${css}\n</style>`;
 });
 
-// ── 3. Save to ~/index.html ───────────────────────────────────────────────────
+// ── 3. Save to ~/index.prod.html ───────────────────────────────────────────────────
 fs.writeFileSync(outPath, html, 'utf8');
 console.log(`\nDone — self-contained file saved to: ${outPath}`);
