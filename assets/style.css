@@ -159,7 +159,7 @@ body {
     width: 350px;
     flex-shrink: 0;
     position: sticky;
-    top: 20px;
+    top: 3.6rem;
     max-height: calc(100vh - 40px);
     display: flex;
     flex-direction: column;
@@ -1137,6 +1137,26 @@ body.urdu-mode .sub-head {
     line-height: 2.3 !important;
 }
 
+.lang-switcher-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    width: 100%;
+    background: rgba(240, 244, 251, 0.30);
+    backdrop-filter: blur(32px) saturate(200%) brightness(1.08);
+    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.08);
+    padding: .4rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    transition: background .3s, border-color .3s;
+}
+
+body.dark-mode .lang-switcher-wrap {
+    background: rgba(20, 25, 36, 0.30);
+    backdrop-filter: blur(32px) saturate(200%) brightness(0.85);
+    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(0.85);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
 .lang-switcher-bar {
     width: 100%;
     max-width: 1400px;
@@ -1146,17 +1166,22 @@ body.urdu-mode .sub-head {
     flex-wrap: wrap;
     gap: .5rem;
     padding: .55rem 2rem;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(28px) saturate(200%) brightness(1.1);
+    -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.1);
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 1rem;
     margin: 0 auto;
     border-radius: 50px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: 0 8px 32px rgba(59, 89, 152, 0.12), inset 0 1px 0 rgba(255,255,255,0.75), inset 0 -1px 0 rgba(255,255,255,0.15);
     box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
+    .lang-switcher-wrap {
+        padding: .25rem .4rem;
+    }
     .lang-switcher-bar {
         border-radius: 16px;
         padding: .3rem .6rem !important;
@@ -1332,8 +1357,11 @@ body.dark-mode .report-card-desc {
 }
 
 body.dark-mode .lang-switcher-bar {
-    background: #1a2535;
-    border-color: var(--border);
+    background: rgba(26, 37, 53, 0.25);
+    border-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(28px) saturate(200%) brightness(0.9);
+    -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.2);
 }
 
 body.dark-mode .hero-stat {

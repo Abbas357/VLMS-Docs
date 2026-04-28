@@ -266,6 +266,7 @@
             </div>
         </div>
     </header>
+    <div class="lang-switcher-wrap">
     <div class="lang-switcher-bar">
         <div>
             <span class="ls-label">&#127760; Language / زبان</span>
@@ -280,10 +281,12 @@
         <div>
             <button class="lang-btn active" id="compact-btn" title="Compact view (less spacing)">Compact</button>
             <button class="lang-btn" id="normal-btn" title="Normal view">Normal</button>
+            <button class="lang-btn" id="fit-btn" title="Zoom page to fit browser width">Fit</button>
         </div>
         <button class="icon-btn" id="dark-btn" title="Toggle dark mode">
             <span class="material-symbols-outlined" id="dark-icon">dark_mode</span>
         </button>
+    </div>
     </div>
     <div class="page-wrap" id="dept-guide-wrap">
 
@@ -2591,6 +2594,34 @@
             } catch (e) { applyCompact(true); }
             if (compactBtn) compactBtn.addEventListener('click', function () { applyCompact(true); });
             if (normalBtn) normalBtn.addEventListener('click', function () { applyCompact(false); });
+
+            /* ── 8c. FIT / ZOOM MODE TOGGLE ── */
+            var fitBtn = document.getElementById('fit-btn');
+            var fitModeOn = false;
+            var FIT_REF_WIDTH = 1480; /* matches page-wrap max-width */
+
+            function applyFitZoom() {
+                var scale = window.innerWidth / FIT_REF_WIDTH;
+                document.documentElement.style.zoom = scale;
+            }
+
+            function setFitMode(on) {
+                fitModeOn = on;
+                if (fitBtn) fitBtn.classList.toggle('active', on);
+                if (on) {
+                    applyFitZoom();
+                    window.addEventListener('resize', applyFitZoom);
+                } else {
+                    document.documentElement.style.zoom = '';
+                    window.removeEventListener('resize', applyFitZoom);
+                }
+                try { localStorage.setItem('vlms-guide-fit', on ? '1' : '0'); } catch (e) { }
+            }
+
+            try {
+                if (localStorage.getItem('vlms-guide-fit') === '1') setFitMode(true);
+            } catch (e) { }
+            if (fitBtn) fitBtn.addEventListener('click', function () { setFitMode(!fitModeOn); });
 
             /* ── 9. LIGHTBOX FOR SCREENSHOT IMAGES ── */
             var lightbox = document.getElementById('lightbox');
